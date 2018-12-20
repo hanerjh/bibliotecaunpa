@@ -19,6 +19,10 @@ class CreateResourcesTable extends Migration
             $table->text('descripcion');
             $table->string('foto');
             $table->string('enlace');
+
+            $table->unsignedInteger('tprecursos_id');
+            $table->foreign('tprecursos_id')->references('id')->on('tipo_recursos');
+            
             $table->boolean('estado');
             $table->timestamps();
         });

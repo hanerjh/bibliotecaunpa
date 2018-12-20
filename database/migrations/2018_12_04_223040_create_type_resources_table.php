@@ -15,9 +15,7 @@ class CreateTypeResourcesTable extends Migration
     {
         Schema::create('tipo_recursos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo');
-            $table->unsignedInteger('recurso_id');
-            $table->foreign('recurso_id')->references('id')->on('recursos');
+            $table->string('titulo');            
             $table->boolean('estado');
             $table->timestamps();
         });

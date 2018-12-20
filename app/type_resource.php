@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class type_resource extends Model
 {
-    public function recurso(){
+    //asigno la tabla tipo_recursos al modelo type_resources
+    protected $table="tipo_recursos";
 
-        return $this->hasMany(type_resource::class);
+     
+
+    public function recurso(){
+        return $this->hasMany(resource::class);
     } 
 
 }

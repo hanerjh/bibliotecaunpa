@@ -3,6 +3,7 @@
 @extends('layout.layout2')
 
 @section('titulo','Recursos Digitales')
+
 @section('contenido')   
 
       <div class="row">
@@ -11,62 +12,55 @@
         <div class="col-md-8">
           
           <!-- Blog Post -->
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-4">
-                  <a href="#">
-                    <img class="img-fluid rounded" src="asset/img/proquest.png" alt="">
-                  </a>
-                </div>
-                <div class="col-lg-8">
-                  <h5 class="card-title">E-libro</h5>
-                  <p class="card-text">Gran base de datos que contiene información de documentos y libros electrónicos para todas las áreas del conocimiento, que el usuario puede visualizar en texto completo.
-                    Para su consulta se puede ingresar a través del Sistema de Información Academusoft con nombre de usuario y clave.
-                    Si tiene problemas a la hora de buscar información en esta plataforma consulte el instructivo.</p>
-                  <a href="#" class="btn btn-primary">Ingresar &rarr;</a>
-                </div>
-              </div>
-            </div>
-           </div>
-
-          <!-- Blog Post -->
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-4">
-                  <a href="#">
-                    <img class="img-fluid rounded" src="asset/img/logo_ebsco.jpg" alt="">
-                  </a>
-                </div>
-                <div class="col-lg-8">
-                  <h5 class="card-title">EPSCO</h5>
-                  <p class="card-text">Ofrece una gran variedad de base de datos, de materiales variados (libros, revistas, informes, conferencias) con textos completos en todas las áreas del saber. Todas estas bases de datos permiten realizar investigaciones rápidas, fáciles y eficaces.</p>
-                  <a href="#" class="btn btn-primary">Ingresar &rarr;</a>
+          @if($bandera==0)
+            @foreach($recursos as $recurso)
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <a href="#">
+                      <img class="img-fluid rounded" src="asset/img/{{$recurso->foto}}" alt="">
+                      </a>
+                    </div>
+                    <div class="col-lg-8">
+                    <h5 class="card-title">{{ $recurso->nombre}}</h5>
+                    <p class="card-text">{{$recurso->descripcion}}</p>
+                    <a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar &rarr;</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-           </div>
+            @endforeach
+            {{"if".$bandera}}
+            {{$recursos->links()}}
+          @elseif($bandera==1)
 
-          <!-- Blog Post -->
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-4">
-                  <a href="#">
-                    <img class="img-fluid rounded" src="asset/img/artarquitectura.JPG" alt="">
-                  </a>
+            @foreach($recursos2 as $recurso)
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <a href="#">
+                        <img class="img-fluid rounded" src="asset/img/{{$recurso->foto}}" alt="">
+                        </a>
+                      </div>
+                      <div class="col-lg-8">
+                      <h5 class="card-title">{{ $recurso->nombre}}</h5>
+                      <p class="card-text">{{$recurso->descripcion}}</p>
+                      <a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar &rarr;</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-lg-8">
-                  <h5 class="card-title">ART & ARCHITECTURE</h5>
-                  <p class="card-text">Art & Architecture Complete proporciona una cobertura de texto completo de 380 publicaciones periódicas y más de 220 libros. Además, esta base de datos ofrece índices y resúmenes completos de más de 780 publicaciones académicas, revistas y publicaciones especializadas como así también de más de 230 libros. Art & Architecture Complete también proporciona una cobertura seleccionada para más de 70 publicaciones y una colección de más de 63.000 imágenes proporcionada por Picture Desk y otros.</p>
-                  <a href="#" class="btn btn-primary">Ingresar &rarr;</a>
-                </div>
-              </div>
-            </div>
-           </div>
+              @endforeach
+              {{"else".$bandera}}
+              {{ $recursos2->appends(['bandera' => '1'])->links() }}
+          @endif
 
-          <!-- Pagination -->
+   
+          <!-- Blog Post         
+
+           Pagination 
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
               <a class="page-link" href="#">&larr; Older</a>
@@ -74,7 +68,7 @@
             <li class="page-item disabled">
               <a class="page-link" href="#">Newer &rarr;</a>
             </li>
-          </ul>
+          </ul>-->
 
         </div>
 
@@ -85,23 +79,30 @@
           <div class="card mb-4">
             <h5 class="card-header">Recursos Digitales</h5>
             <div class="card-body">
-                <div class="form-group">
-                   
-                    <select class="form-control" id="exampleFormControlSelect2">
-                      <option>Seleccione..</option>
-                      <option>Base de datos de acceso Restringido</option>
-                      <option>Base de datos de acceso libre</option>
-                      <option>Revistas Electronicas</option>
-                      <option>Bibliotecas Digitales</option>
-                     
-                    </select>
-                  </div>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar recurso...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
+              <form method="POST" action="/bibliotecadigital">
+                   <div class="form-group">
+                 
+                        {{ csrf_field() }}
+                        <select class="form-control"  name="recurso_option_list" id="exampleFormControlSelect2">
+                            <option>Seleccione..</option>
+                            
+                            <!-- Tomando los valores desde el modelo tipo de usuario-->
+                              @foreach($tiporecursos as $tiporecurso)
+                              <option value="{{$tiporecurso->id }}">{{ $tiporecurso->titulo }}</option>
+                              @endforeach                  
+                            
+                          </select>
+
+                    
+                      
+                            </div>
+                        <div class="input-group">
+                          <input type="text" name="brescurso" class="form-control" value="" placeholder="Buscar recurso...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="submit">Go!</button>
+                          </span>
               </div>
+            </form>
             </div>
           </div>
 
