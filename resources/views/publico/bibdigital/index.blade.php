@@ -23,19 +23,22 @@
                       </a>
                     </div>
                     <div class="col-lg-8">
-                    <h5 class="card-title">{{ $recurso->nombre}}</h5>
+                    <h5 class="card-title" data-bandera-type="0">{{ $recurso->nombre}}</h5>
                     <p class="card-text">{{$recurso->descripcion}}</p>
                     <a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar &rarr;</a>
+                  
                     </div>
                   </div>
                 </div>
               </div>
             @endforeach
-            {{"if".$bandera}}
-            {{$recursos->links()}}
+        
+            {{$recursos->appends(['idtiporecurso' => $recurso->tipo_recursos_id])->links()}}
+         
+
           @elseif($bandera==1)
 
-            @foreach($recursos2 as $recurso)
+            @foreach($recursos as $recurso)
                 <div class="card mb-4">
                   <div class="card-body">
                     <div class="row">
@@ -45,16 +48,38 @@
                         </a>
                       </div>
                       <div class="col-lg-8">
-                      <h5 class="card-title">{{ $recurso->nombre}}</h5>
+                      <h5 class="card-title" >{{ $recurso->nombre}}</h5>
                       <p class="card-text">{{$recurso->descripcion}}</p>
+                    
                       <a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar &rarr;</a>
                       </div>
                     </div>
                   </div>
                 </div>
               @endforeach
-              {{"else".$bandera}}
-              {{ $recursos2->appends(['bandera' => '1'])->links() }}
+              {{ $recursos->appends(['idtiporecurso' => $recurso->tipo_recursos_id,'data-bandera-type'=>'1'])->links() }}
+
+          @elseif($bandera==3)
+          @foreach($recursos as $recurso)
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-4">
+                  <a href="#">
+                  <img class="img-fluid rounded" src="asset/img/{{$recurso->foto}}" alt="">
+                  </a>
+                </div>
+                <div class="col-lg-8">
+                <h5 class="card-title">{{ $recurso->nombre}}</h5>
+                <p class="card-text">{{$recurso->descripcion}}</p>
+                <a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar &rarr;</a>
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        @endforeach 
+         {{$recursos->appends(['data-bandera-type'=>'3'])->links()}}
           @endif
 
    
@@ -92,9 +117,6 @@
                               @endforeach                  
                             
                           </select>
-
-                    
-                      
                             </div>
                         <div class="input-group">
                           <input type="text" name="brescurso" class="form-control" value="" placeholder="Buscar recurso...">

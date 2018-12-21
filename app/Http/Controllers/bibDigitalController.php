@@ -13,16 +13,42 @@ class bibDigitalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $recursos=resource::paginate(2);
-        $tiporecursos = type_resource::all();
+ 
+       //dd($request->query('bandera'));
+       //dd($request->getQueryString());
+       //dd($request->query('idtiporecurso'));
+       //SE EVALUA QUE EL REQUES SEA DESDE LA ENTRADA AUTOMATICA DEL INDEX CONTROLLER
+        if($request->getQueryString()==null){
+            $bandera=3;
+            $recursos=resource::paginate(2);
+            $tiporecursos = type_resource::all();
+        }
+        else //ENTRA A ESTE ELSE CUANCO SE HACE CLICK EN LOS ENLACES DE PAGINACION
+        { 
+            $bandera=$request->query('data-bandera-type');
+            // CUANDO BANDERA EN DIFERENTE DE 3, ES PORQUE SE ESTA BUSCANDO DESDE EL FILTRO TIPO DE RECURSOS E INGRESA AL IF
+             if($bandera!=3){
+                $idrecurso= $request->query('idtiporecurso'); 
+                    
+                $recursos = resource::where('tipo_recursos_id',$idrecurso)->paginate(2);               
+               
+
+             }
+            else  //SI LA BANDERA ES IGUAL A 3 ES PORQUE SE ESTA HACIENDO CLICK EN LOS LINKS DE PAGINACION QUE FUERON CARGADOS EN LA PRIMERA LLAMADA DEL INDEX CONTROLLER
+            {
+                $recursos=resource::paginate(2);
+              
+            }
+           
+            $tiporecursos = type_resource::all();
+           
+        }
         
-            $bandera=0;
-      
         
        // dd(  $tiporecurso);
-        return view('publico.bibdigital.index', compact('tiporecursos','recursos','bandera'));
+        return view('publico.bibdigital.index', compact('tiporecursos','bandera','recursos'));
     }
 
     /**
@@ -45,10 +71,10 @@ class bibDigitalController extends Controller
     {
         
         $idrecurso= $request->input('recurso_option_list');
-         $recursos2 = resource::where('tipo_recursos_id',$idrecurso)->paginate(2);
+         $recursos = resource::where('tipo_recursos_id',$idrecurso)->paginate(2);
          $tiporecursos = type_resource::all();
          $bandera=1;
-        return view('publico.bibdigital.index',compact('recursos2','bandera','tiporecursos'));
+        return view('publico.bibdigital.index',compact('recursos','bandera','tiporecursos'));
     }
 
     /**
@@ -59,7 +85,7 @@ class bibDigitalController extends Controller
      */
     public function show($id)
     {
-        return "hola";
+        dd($id);
     }
 
     /**
