@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\type_resource;
 use App\resource;
+use Illuminate\Support\Facades\DB;
 
 class bibDigitalController extends Controller
 {
@@ -23,7 +24,13 @@ class bibDigitalController extends Controller
         if($request->getQueryString()==null){
             $bandera=3;
             $recursos=resource::paginate(2);
-            $tiporecursos = type_resource::all();
+            //$tiporecursos = type_resource::all();
+            $tiporecursos =  DB::table('tipo_recursos')
+                                ->join('recursos','tipo_recursos.id','recursos.tipo_recursos_id')
+                                ->select('tipo_recursos.id','tipo_recursos.titulo')
+                                ->groupBy('id','titulo')
+                                ->get();
+               // dd($tiporecursos);
         }
         else //ENTRA A ESTE ELSE CUANCO SE HACE CLICK EN LOS ENLACES DE PAGINACION
         { 
@@ -72,9 +79,12 @@ class bibDigitalController extends Controller
         
         $idrecurso= $request->input('recurso_option_list');
          $recursos = resource::where('tipo_recursos_id',$idrecurso)->paginate(2);
+         
          $tiporecursos = type_resource::all();
-         $bandera=1;
-        return view('publico.bibdigital.index',compact('recursos','bandera','tiporecursos'));
+         
+            $bandera=1;
+            return view('publico.bibdigital.index',compact('recursos','bandera','tiporecursos'));
+        
     }
 
     /**

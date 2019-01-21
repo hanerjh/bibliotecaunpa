@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('publico.home');
-});
+});*/
+
+Route::resource('/','indexController');
 
 Route::get('/services',function(){
     return view('publico.services');
