@@ -15,7 +15,8 @@ class indexController extends Controller
     public function index()
      {
          $eventos=DB::table('eventos')->get();
-        return view('publico.home',compact('eventos'));
+         $publicaciones=DB::table('publicaciones')->limit(3)->get();
+        return view('publico.home',compact('eventos','publicaciones'));
     }
 
     /**

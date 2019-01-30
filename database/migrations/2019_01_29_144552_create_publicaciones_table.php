@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColeccionesTable extends Migration
+class CreatePublicacionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,16 @@ class CreateColeccionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('colecciones', function (Blueprint $table) {
+        Schema::create('publicaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('coleccion');
+            $table->string('titulo');
+            $table->text('descripcion');
+            $table->string('img');
             $table->boolean('estado');
+
+            $table->unsignedInteger('fk_idtipopublicacion');
+            $table->foreign('fk_idtipopublicacion')->references('id')->on('tipo_publicaciones');
+
             $table->timestamps();
         });
     }
@@ -28,6 +34,6 @@ class CreateColeccionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colecciones');
+        Schema::dropIfExists('publicaciones');
     }
 }

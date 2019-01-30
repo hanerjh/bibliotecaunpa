@@ -141,26 +141,16 @@
                 <h2>ACTUALIDAD</h2>
 
               <div class="row">
+                @foreach($publicaciones as $publicacion)
                   <div class="card" style="width: 17.5rem; margin-right:3px;">
-                      <img class="card-img-top" src="http://placehold.it/700x400" alt="Card image cap">
+                  <img class="card-img-top" src="{{ $publicacion->img }}"  alt="Card image cap">
                       <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p class="card-text">{{ $publicacion->titulo }}</p>
                       </div>
                     </div>
+                    @endforeach
 
-                    <div class="card" style="width: 17.5rem;margin-right:3px;">
-                        <img class="card-img-top" src="http://placehold.it/700x400" alt="Card image cap">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                      </div>
-
-                      <div class="card" style="width: 17.5rem;margin-right:3px;">
-                          <img class="card-img-top" src="http://placehold.it/700x400" alt="Card image cap">
-                          <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          </div>
-                        </div>
+                    
               </div>
             </div>
                    

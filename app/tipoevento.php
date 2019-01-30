@@ -10,7 +10,7 @@ class tipoevento extends Model
     protected $table="tipoevento";
 
      
-
+  //apunta o se relaciona con la tabla eventos
     public function evento(){
         return $this->hasMany(eventos::class);
     } 

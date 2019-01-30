@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColeccionesTable extends Migration
+class CreateTipoPublicacionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateColeccionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('colecciones', function (Blueprint $table) {
+        Schema::create('tipo_publicaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('coleccion');
+            $table->string('tipopublicacion');
             $table->boolean('estado');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateColeccionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colecciones');
+        Schema::dropIfExists('tipo_publicaciones');
     }
 }
