@@ -30,5 +30,12 @@ body {
 .bg-dark {
   background-color:  #244275 !important;
 }
+.barranumberloadpadre{ background-color: #F2F2F2; padding-top: 20px; padding-bottom: 20px;}
+.barranumberload{background-color:#0E3E6B; padding-top: 20px; padding-bottom: 20px; padding-left: 20%; }
+.barranumberload div{ border-left: aliceblue 1px solid; }
+
+.ctitle{ color: aliceblue;}
+.counter{margin-top:-14px; color: aliceblue;}
 h3{ color: aliceblue;}
+.iconos{color: aliceblue; margin-right: 10px;}
 .colortext{color:#244275}

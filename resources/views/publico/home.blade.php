@@ -10,11 +10,22 @@
 
     <title>Biblioteca Unipacífico</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Bootstrap core CSS
+     <link href="asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    -->
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="asset/css/modern-business.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+ <!-- grid gallery style -->
+    <link href="asset/gridgallery/css/MetroJs.css" rel="stylesheet" type="text/css" media="screen"><!-- da la animacion de la galeria central-->
+    <link href="asset/gridgallery/css/dialog.css" rel="stylesheet" type="text/css" media="screen"> <!-- ventana emergente -->
+    <link href="asset/gridgallery/css/dialog-sandra.css" rel="stylesheet" type="text/css" media="screen"><!-- datos de ventana emergente -->
+    <link href="asset/gridgallery/css/owl.carousel.css" rel="stylesheet" type="text/css" media="screen">
+    <link class="main-stylesheet" href="asset/gridgallery/css/pages.css" rel="stylesheet" type="text/css"><!-- crea los grid slider gallery -->
+    <link class="main-stylesheet" href="asset/gridgallery/css/gallery2.cs" rel="stylesheet" type="text/css"><!-- crea los grid slider gallery -->
 
   </head>
 
@@ -25,7 +36,7 @@
    <!-- finnavigation-->
 
     <header>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel  carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -110,54 +121,87 @@
         </div>
       </div>
       <!-- /.row -->
- 
+    </div>
       <!-- Features Section -->
-  <div class="row">
-    <div class="col-lg-6">
-      <h2>Modern Business Features</h2>
-      <p>The Modern Business template by Start Bootstrap includes:</p>
-      <ul>
-        <li>
-          <strong>Bootstrap v4</strong>
-        </li>
-        <li>jQuery</li>
-        <li>Font Awesome</li>
-        <li>Working contact form with validation</li>
-        <li>Unstyled page elements for easy customization</li>
-      </ul>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-    </div>
-    <div class="col-lg-6">
-      <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
-    </div>
-  </div>
+      <div class="container-fluid barranumberloadpadre ">
+        <div class="row">
+           <div class="container">
+              <h4>
+                  Fancy display heading
+                  <small class="text-muted">With faded secondary text</small>
+                </h3>
+
+               <div class="row  barranumberload">  
+                  
+                  <div class="col-3">
+                      <i class="fas fa-book fa-3x iconos float-left"></i>
+                      <span>
+                        <p class="ctitle font-weight-bold">TITULOS</p>
+                        <p class="counter">9.724</p>
+                      </span>    
+                  </div>
+
+                  <div class="col-3">
+                    <i class="fas fa-copy fa-3x iconos float-left"></i>
+                    <span>
+                      <p class="ctitle font-weight-bold">EJEMPLARES</p>
+                      <p class="counter">9.724</p>
+                    </span>    
+                </div>
+
+                <div class="col-3">
+                  <i class="fas fa-book-open fa-3x iconos float-left"></i>
+                  <span>
+                    <p class="ctitle font-weight-bold">REVISTAS</p>
+                    <p class="counter">9.724</p>
+                  </span>    
+              </div>
+                
+
+               </div>             
+           </div> 
+        </div>
+      </div>
+
+ <div class="container">
   <!-- /.row -->
 
   <hr>
-      <!-- Portfolio Section -->
+      <!-- GRID GALLERY -->
     
       <div class="row"> 
-            <div class="col-9">
+            <div class="col-8">
                 <h2>ACTUALIDAD</h2>
+              
+               
+                    <!-- PASAMOS LOS DATOS AL PARTIALS GALLERY PARA PROCESAR-->
+                  @include("fragments.gridgallery", ['page_title' => $publicaciones])
 
-              <div class="row">
-                @foreach($publicaciones as $publicacion)
-                  <div class="card" style="width: 17.5rem; margin-right:3px;">
-                  <img class="card-img-top" src="{{ $publicacion->img }}"  alt="Card image cap">
-                      <div class="card-body">
-                      <p class="card-text">{{ $publicacion->titulo }}</p>
+                 
+                  <!-- finnavigation-->
+               <!-- 
+                  @foreach($publicaciones as $publicacion)
+                  <div class="col-4">
+                    <div class="card" style="width: 17.5rem; margin-right:3px;">
+                    <img class="card-img-top" src="{{ $publicacion->img }}"  alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text">{{ $publicacion->titulo }}</p>
+                        </div>
                       </div>
                     </div>
-                    @endforeach
+                      @endforeach
+                    -->
+               
+               
 
                     
-              </div>
+          
             </div>
                    
        
         <!----------------------------------------------- menu de opciones-->
 
-        <div class="col-3">
+        <div class="col-4">
           @include('fragments.menu')
           
       </div>
@@ -227,6 +271,25 @@
     <!-- Bootstrap core JavaScript -->
     <script src="asset/vendor/jquery/jquery.min.js"></script>
     <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- grid gallery jQuery first, then Popper.js, then Bootstrap JS -->
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="asset/gridgallery/js/jquery-3.2.1.min.js.descarga" type="text/javascript"></script>
+<script src="asset/gridgallery/js/modernizr.custom.js.descarga" type="text/javascript"></script><!-- 1 -->
+<!-- <script src="js/jquery-ui.min.js.descarga" type="text/javascript"></script>--> 
+<script type="text/javascript" src="asset/gridgallery/js/classie.js.descarga"></script><!--2-->
+<script src="asset/gridgallery/js/MetroJs.min.js.descarga" type="text/javascript"></script><!--3-->
+<script src="asset/gridgallery/js/imagesloaded.pkgd.min.js.descarga"></script><!--4-->
+<script src="asset/gridgallery/js/dialogFx.js.descarga" type="text/javascript"></script><!--5-->
+<script src="asset/gridgallery/js/owl.carousel.min.js.descarga" type="text/javascript"></script>
+<script src="asset/gridgallery/js/isotope.pkgd.min.js.descarga" type="text/javascript"></script>
+
+<script src="asset/gridgallery/js/gallery.js" type="text/javascript"></script><!--6-->
 
   </body>
 

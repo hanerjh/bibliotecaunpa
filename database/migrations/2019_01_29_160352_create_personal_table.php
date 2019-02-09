@@ -15,6 +15,16 @@ class CreatePersonalTable extends Migration
     {
         Schema::create('personal', function (Blueprint $table) {
             $table->increments('id');
+            $table->string("nombre");
+            $table->string("apellidos");
+            $table->string("email");
+            $table->string("telefono");
+            $table->string("descripcion");
+
+            $table->unsignedInteger('fkidcargo');
+            $table->foreign('fkidcargo')->references('id')->on('cargos');
+            $table->boolean("estado");
+
             $table->timestamps();
         });
     }
