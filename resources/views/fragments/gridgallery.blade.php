@@ -8,12 +8,12 @@
           <!-- central-->
           <div class="gallery-item " data-id="2" data-width="2" data-height="2" style="position: absolute; left: 290px; top: 0px;">
 
-            <div class="live-tile slide carousel" data-speed="750" data-delay="4000" data-mode="carousel">
+            <div class="live-tile slide carousel" data-speed="750" data-delay="4000" data-mode="">
             <div class="slide-front slide active" style="transition-property: top; transition-duration: 750ms; transition-timing-function: ease; top: 0%; left: 0%;">
-            <img src={{ $publicacion->img }} alt="" class="image-responsive-height">
+            <img src={{ $publicacion->img }} alt="" class="image-responsive-height image-responsive-width">
             </div>
             <div class="slide-back slide" style="left: 0%; top: -100%; transition-duration: 750ms; transition-property: top; transition-timing-function: ease;">
-            <img src="asset/gridgallery/img/2_2.jpg" alt="" class="image-responsive-height">
+            <img src="asset/gridgallery/img/2_2.jpg" alt="" class="image-responsive-height image-responsive-width">
             </div>
             </div>
             

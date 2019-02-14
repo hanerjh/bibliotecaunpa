@@ -28,10 +28,10 @@ body {
   margin-bottom: 30px;
 }
 .bg-dark {
-  background-color:  #244275 !important;
+  background-color: #2456ac !important; /*#2456ac #244275 ;*/
 }
 .barranumberloadpadre{ background-color: #F2F2F2; padding-top: 20px; padding-bottom: 20px;}
-.barranumberload{background-color:#0E3E6B; padding-top: 20px; padding-bottom: 20px; padding-left: 20%; }
+.barranumberload{background-color:#ffc717 ; padding-top: 20px; padding-bottom: 20px; padding-left: 20%; }
 .barranumberload div{ border-left: aliceblue 1px solid; }
 
 .ctitle{ color: aliceblue;}
@@ -39,3 +39,32 @@ body {
 h3{ color: aliceblue;}
 .iconos{color: aliceblue; margin-right: 10px;}
 .colortext{color:#244275}
+
+#menuvertical .list-group-item-action { 
+  padding: .35rem 1.25rem;
+}
+
+.bg-footer{
+ 
+  background-image: url("../../asset/img/biblio3.JPG");
+  
+  background-size: cover;
+
+}
+
+.bg-footer::before{
+  background-color: rgba(16, 112, 64, 0.815);
+  content: '';
+  display: block;
+  height: 100%;
+  
+  width: 100%;
+}
+
+.wp-titulos{
+  padding-top: 30px; 
+  padding-bottom: 30px;
+  background-color: #f2f2f2;
+  border-top:rgb(233, 233, 233) 1px solid; 
+  border-bottom:rgb(233, 233, 233) 1px solid; 
+}

@@ -156,6 +156,9 @@ Generated From SASS
 .bg-success-darker {
   background-color: #0a7c71;
 }
+.bg-green {
+  background-color: #098680;
+}
 .bg-success-light {
   background-color: #40d9ca;
 }
@@ -250,7 +253,7 @@ Generated From SASS
 }
 .bg-tagcolor {
   border-radius: 4px;
-  padding:5px;
+  padding:3px;
   background-color:#D2E827;
 }
 .bg-transparent {
@@ -2668,18 +2671,18 @@ Main components
   color: #ffffff;
 }
 .gallery-item .item-info {
-  -webkit-transform: translate3d(0, 40%, 0);
-  transform: translate3d(0, 40%, 0);
+  -webkit-transform: translate3d(0, 100px, 0);
+  transform: translate3d(0, 100px, 0);
   -webkit-transition: -webkit-transform 0.35s, color 0.35s;
   transition: transform 0.35s, color 0.35s;
 }
 .gallery-item .item-info.more-content {
-  -webkit-transform: translate3d(0, 32%, 0);
-  transform: translate3d(0, 32%, 0);
+  -webkit-transform: translate3d(0, 20%, 0);
+  transform: translate3d(0, 20%, 0);
 }
 .gallery-item:hover .item-info {
-  -webkit-transform: translate3d(0, 0%, 0);
-  transform: translate3d(0, 0%, 0);
+  -webkit-transform: translate3d(0, 10%, 0);
+  transform: translate3d(0, 10%, 0);
 }
 .gallery-item:hover > img {
   opacity: 0.6;
@@ -2864,6 +2867,49 @@ Main components
   }
 }
 /*------------------------------------------------------------------
+
+/*--------- start brand Area -------------*/
+.brands-area {
+  
+
+  padding: 20px 0;
+  background: -webkit-linear-gradient(0deg, #8490ff 0%, #62bdfc 100%);
+  background-image: url("../img/blur.jpg");
+  background-size: cover;
+
+}
+
+.brands-area .brand-wrap .owl-carousel .owl-item img {
+  -width: auto !important;
+  width: 150px;
+}
+
+.brands-area .brand-wrap .single-brand {
+  text-align: center;
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+  opacity: 1;
+  
+}
+
+.brands-area .brand-wrap .single-brand:hover {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+  opacity: .5;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+/*--------- end brand Area -------------*/
+/*------------------------------
 [26. Vector Map : Mapplic Plugin]
 */
 .horizontal-app-menu .map-controls {

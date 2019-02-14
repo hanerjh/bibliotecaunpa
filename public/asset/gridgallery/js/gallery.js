@@ -39,6 +39,42 @@ $(function () {
     $('[data-toggle="filters"]').click(function () {
         $('#filters').toggleClass('open');
     });
+
+    
+    //------- Counter  js --------//  
+
+    if(document.getElementById("facts-area")){
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+      }
+     //------- brand carusel  js --------   
+
+      $('.active-brand-carusel').owlCarousel({
+        items: 8,
+        loop: true,
+        autoplayHoverPause: true,
+        autoplay: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            455: {
+                items: 2
+            },            
+            768: {
+                items: 3,
+            },
+            991: {
+                items: 4,
+            },
+            1024: {
+                items: 8,
+            }
+        }
+    }); 
+
    /* $("#slider-margin").noUiSlider({
         start: [20, 80],
         margin: 30,

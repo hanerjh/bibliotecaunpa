@@ -1,12 +1,12 @@
-<div class="list-group">
+<div class="list-group" id="menuvertical">
     <a href="#" class="list-group-item list-group-item-action active">
-      Status en Biblioteca
+     Menu
     </a>
-    <a href="#" class="list-group-item list-group-item-action disabled">Tramites en linea</a>
+    <a href="#" class="list-group-item list-group-item-action disabled">Repositorio Intitucional</a>
     <a href="#" class="list-group-item list-group-item-action">Solicitud de usuario</a>
-    <a href="#" class="list-group-item list-group-item-action">Paz y salvo</a>
-    <a href="#" class="list-group-item list-group-item-action">Preguntas frecuentes</a>
-    <a href="#" class="list-group-item list-group-item-action disabled">Formacion de usuarios</a>
-    <a href="#" class="list-group-item list-group-item-action disabled">Entrega de proyectos</a>
+    <a href="#" class="list-group-item list-group-item-action">Estatus en Biblioteca</a>
+    <a href="#" class="list-group-item list-group-item-action">Paz y salvo</a>   
+    <a href="#" class="list-group-item list-group-item-action disabled">Formacion a usuarios</a>
+    <a href="#" class="list-group-item list-group-item-action disabled">Entrega de trabajos de grado</a>
    
   </div>

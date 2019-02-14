@@ -1,6 +1,9 @@
-@import url("");
 
 
 .iconos{
     color: aliceblue;
+}
+
+.bg-footer{
+    background: url("asset/img/bgfotounpa.jpg");
 }
