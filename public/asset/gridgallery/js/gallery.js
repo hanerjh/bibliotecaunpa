@@ -14,15 +14,24 @@ $(function () {
         });
     }
     $(".live-tile,.flip-list").liveTile();
+    //cuando se hace click en la galeria se toma el id de cada seccion y se ejecuta el popup
     $('body').on('click', '.gallery-item', function () {
                
-                var idslider ="#itemDetails"+$(this).data("id");       
+        window.location.href = "publicaciones/"+$(this).data("id");
+       // $.get("publicaciones/"+$(this).data("id"));
+      /*  var idslider ="#itemDetails"+$(this).data("id"); 
+         var dlg = new DialogFx($(idslider).get(0));
+        dlg.toggle();*/
+    });
 
-          var dlg = new DialogFx($(idslider).get(0));
-      
-        
+    $('body').on('click', '.event-item', function (event) {
+        event.preventDefault();
+       // $.get("publicaciones/"+$(this).data("id"));
+        var idslider ="#itemDetails"+$(this).data("id"); 
+         var dlg = new DialogFx($(idslider).get(0));
         dlg.toggle();
     });
+
     $('.item-slideshow > div').each(function () {
         var img = $(this).data('image');
         $(this).css({

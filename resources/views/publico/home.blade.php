@@ -192,34 +192,54 @@
       <div class="list-group">
          
         @foreach($eventos as $evento)
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-            
-          <div class="d-flex w-100 justify-content-between">
-            <h6 class="mb-1">{{$evento->titulo}}</h6>
-            <small>3 days ago</small>
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start event-item"  data-id="{{$evento->id}}" >            
+         
+          <div class="d-flex w-100 justify-content-between">            
+          <h6 class="mb-1">{{$evento->titulo}}</h6> 
+                 
           </div>
-          <small>When it comes to digital design, the lines between functionalit </small>
-          <span class="pull-right rounded semi-bold text-black bg-success px-2 font-montserrat bg-tag bold "><small>Exposición</small></span>
-
+          <small>Fecha del evento: {{$evento->fecha_cierre}}</small>
+          <br> 
+          <small>{{str_limit($evento->contenido,80)}} </small>          
+          <span class="pull-right rounded semi-bold text-black bg-success px-2 font-montserrat bg-tag bold ">
+            <small>{{$evento->tipo_evento}}</small>
+          </span>        
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h6 class="mb-1">List group item List group item heading</h6>
-              <small class="text-muted">3 days ago</small>
-            </div>
-            <small class="text-muted">Donec id elit non mi porta.</small>
-            <span class="pull-right rounded semi-bold text-black bg-success px-2 font-montserrat bg-tag bold "><small>Taller</small></span>
-
-          </a>
-          <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">List group item List group item heading</h6>
-                <small class="text-muted">3 days ago</small>
-              </div>
-              <small class="text-muted">Donec id elit non mi porta.</small>
-              <span class="pull-right  semi-bold text-primary  px-2 font-montserrat bold "><small>Club de lectura</small></span>
-
-            </a>
+        
+         <!-- item event pop over -->   
+      <div id="itemDetails{{$evento->id}}" class="dialog item-details">
+        <div class="dialog__overlay"></div>
+        <div class="dialog__content">
+        <div class="container-fluid">
+        <div class="row dialog__overview">
+        <div class="col-md-7 no-padding item-slideshow-wrapper full-height">
+        <div class="item-slideshow full-height ">  
+              <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 984px;">
+                  <div class="owl-item active" style="width: 491.75px;">
+                  <div class="slide" data-image="" style="background-image: url(&quot;{{$evento->img}}&quot;); background-size:600px 600px;">
+                    </div>
+                  </div>
+                </div>
+             </div>
+        </div>
+        </div>
+        <div class="col-md-5 p-r-35 p-t-35 p-l-35 full-height item-description">
+        <h4 class="semi-bold no-margin font-montserrat">{{ $evento->titulo}}</h4>
+        <br>      
+        <p class="fs-13">{{ $evento->contenido}}   </p>
+       
+        <br>
+        <button class="btn btn-primary buy-now">Ver mas noticias</button>
+        </div>
+        </div>
+       
+        </div>
+        <button class="close action top-right" data-dialog-close=""><i class="pg-close fs-14"></i>
+        </button>
+        </div>
+        </div> 
+    <!-- End item  event pop over -->		
         @endforeach
       </div>
       <div class="pull-right mt-2">             
@@ -230,7 +250,8 @@
     </div>
     <br>
  
-    <!-- /.row -->
+    
+ 
   
   
 
@@ -246,48 +267,22 @@
  
      <div class="wp-titulos">
         <div class="container">
-         
+            <h2 class=" py-2  ">
+                <i class="fas fa-book-reader"></i>
+               Nuevas 
+               <small class="text-muted">Adquisiciones</small> </h2>
+           
           </div>
         <section class="brands-area">            
             <div class="container-fluid">
                 <div class="brand-wrap my-5">
                     <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
+                        @foreach ($covers as $cover)
                         <div class="col single-brand">
-                            <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb1.jpg"  alt=""></a>
-                        </div>
-                        <div class="col single-brand">
-                            <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb2.jpg"  alt=""></a>
-                        </div>
-                        <div class="col single-brand">
-                            <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb3.jpg" alt=""></a>
-                        </div>
-                        <div class="col single-brand">
-                            <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb4.jpg" alt=""></a>
-                        </div>
-                        <div class="col single-brand">
-                            <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb5.jpg" alt="" ></a>
-                        </div>
-                        <div class="col single-brand">
-                          <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb6.jpg" alt="" ></a>
+                        <a href="http://unipacifico.metabiblioteca.org/cgi-bin/koha/opac-detail.pl?biblionumber={{$cover[0]}}" target="blank"><img class="mx-auto " src="http://unipacifico.metabiblioteca.org/cgi-bin/koha/opac-image.pl?thumbnail=1&biblionumber={{$cover[0]}}"  alt="{{$cover[1]}}"></a>
+                        <!--<small class="text-white">{{$cover[1]}}</small>-->
                       </div>
-                      <div class="col single-brand">
-                          <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb1.jpg"  alt=""></a>
-                      </div>
-                      <div class="col single-brand">
-                          <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb2.jpg"  alt=""></a>
-                      </div>
-                      <div class="col single-brand">
-                          <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb3.jpg" alt=""></a>
-                      </div>
-                      <div class="col single-brand">
-                          <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb4.jpg" alt=""></a>
-                      </div>
-                      <div class="col single-brand">
-                          <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb5.jpg" alt="" ></a>
-                      </div>
-                      <div class="col single-brand">
-                        <a href="#"><img class="mx-auto " src="asset/gridgallery/img/portadas/lb6.jpg" alt="" ></a>
-                    </div>
+                        @endforeach 
                     </div>
                 </div>
             </div>
@@ -295,10 +290,9 @@
     
 
      </div>
-      
-   
-    <!-- End brands Area -->		
- 
+
+    
+    
   <!-- fin seccion de nuevos titulos-->
 
     <!-- Footer -->
@@ -370,8 +364,8 @@
     <!-- Bootstrap core JavaScript -->
     <script src="asset/vendor/jquery/jquery.min.js"></script>
     <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!-- grid gallery jQuery first, then Popper.js, then Bootstrap JS -->
 
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->

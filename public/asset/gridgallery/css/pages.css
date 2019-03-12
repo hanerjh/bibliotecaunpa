@@ -2671,18 +2671,18 @@ Main components
   color: #ffffff;
 }
 .gallery-item .item-info {
-  -webkit-transform: translate3d(0, 100px, 0);
-  transform: translate3d(0, 100px, 0);
+  -webkit-transform: translate3d(0, 150px, 0);
+  transform: translate3d(0, 150px, 0);
   -webkit-transition: -webkit-transform 0.35s, color 0.35s;
   transition: transform 0.35s, color 0.35s;
 }
 .gallery-item .item-info.more-content {
-  -webkit-transform: translate3d(0, 20%, 0);
-  transform: translate3d(0, 20%, 0);
+  -webkit-transform: translate3d(0, 150px, 0);
+  transform: translate3d(0, 150px, 0);
 }
 .gallery-item:hover .item-info {
-  -webkit-transform: translate3d(0, 10%, 0);
-  transform: translate3d(0, 10%, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 .gallery-item:hover > img {
   opacity: 0.6;

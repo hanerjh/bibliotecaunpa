@@ -20,13 +20,17 @@ Route::resource('/','indexController');
 Route::get('/services',function(){
     return view('publico.services');
 });
+//noticias
+Route::get('/publicaciones/{id}','publicacionesController@post');
+Route::get('/noticias','publicacionesController@noticias');
 
-Route::get('/biblioteca',function(){
-    return view('publico.about');
-});
+Route::get('/biblioteca','bibGeneralController@about');
+
+Route::get('/equipo','bibGeneralController@equipo');
 
 Route::get('/recursos',function(){
     return view('publico.recursos.index');
 });
 
 Route::resource('/bibliotecadigital','bibDigitalController');
+

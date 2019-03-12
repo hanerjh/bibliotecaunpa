@@ -14,10 +14,20 @@ class indexController extends Controller
      */
     public function index()
      {
-         $eventos=DB::table('eventos')->get();
+         $eventos=DB::table('eventos')
+                        ->join('tipoeventos','tipoeventos.id','=','tpeventos_id')
+                        ->limit(3)
+                        ->orderBy('eventos.id','desc')
+                        ->get();
          $publicaciones=DB::table('publicaciones')->where('fk_idtipopublicacion',"<>",3)->limit(6)->orderBy('id', 'desc')->get();
          $banners=DB::table('publicaciones')->where('fk_idtipopublicacion',"=",3)->limit(3)->orderBy('id', 'desc')->get();
-        return view('publico.home',compact('eventos','publicaciones','banners'));
+       
+         $client = new \GuzzleHttp\Client();
+         $request = $client->get('http://unipacifico.metabiblioteca.org/cgi-bin/koha/svc/report?id=51');
+         $response = $request->getBody();
+          $covers= json_decode($response->getContents());
+           
+         return view('publico.home',compact('eventos','publicaciones','banners','covers'));
     }
 
     /**

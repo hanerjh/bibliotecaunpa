@@ -6,52 +6,28 @@
        @if($con==0)
 
           <!-- central-->
-          <div class="gallery-item " data-id="2" data-width="2" data-height="2" style="position: absolute; left: 290px; top: 0px;">
+          <div class="gallery-item " data-id="{{$publicacion->id}}" data-width="2" data-height="2" style="position: absolute; left: 290px; top: 0px;">
 
-            <div class="live-tile slide carousel" data-speed="750" data-delay="4000" data-mode="">
+            <div class="live-tile carousel" data-speed="750" data-delay="4000" data-mode="">
             <div class="slide-front slide active" style="transition-property: top; transition-duration: 750ms; transition-timing-function: ease; top: 0%; left: 0%;">
             <img src={{ $publicacion->img }} alt="" class="image-responsive-height image-responsive-width">
-            </div>
-            <div class="slide-back slide" style="left: 0%; top: -100%; transition-duration: 750ms; transition-property: top; transition-timing-function: ease;">
-            <img src="asset/gridgallery/img/2_2.jpg" alt="" class="image-responsive-height image-responsive-width">
-            </div>
+            </div>           
             </div>
             
             
             <div class="overlayer bottom-left full-width">
             <div class="overlayer-wrapper item-info more-content">
-            <div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
+            <div class="gradient-grey p-l-20 p-r-20  p-b-5">
             <div class="">
-             
-            <h3 class="pull-left bold text-white no-margin">{{ $publicacion->titulo }}</h3>
+              <span class="pull-right semi-bold text-black font-montserrat bold bg-tagcolor no-margin">Anuncio</span>
+            <h5 class="pull-left bold text-white no-margin">{{ $publicacion->titulo }}</h5>
            
-            <span class="pull-right semi-bold text-black font-montserrat bold bg-tagcolor no-margin">Anuncio</span>
+           
             <div class="clearfix"></div>
-            <span class="hint-text pull-left text-white">Hand and mind crafted</span>
-            <div class="clearfix"></div>
-            </div>
-            <div class="">
-            <h5 class="text-white light">Most Sold Item in the marketplace</h5>
-            </div>
-            <div class="m-t-10">
-            <div class="thumbnail-wrapper d32 circular m-t-5">
-            <img width="40" height="40" src="asset/gridgallery/img/avatar.jpg" data-src="asset/gridgallery/img/avatar.jpg" data-src-retina="asset/gridgallery/img/avatar2x.jpg" alt="">
-            </div>
-            <div class="inline m-l-10">
-            <p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-            <p class="rating">
-            <i class="fa fa-star rated"></i>
-            <i class="fa fa-star rated"></i>
-            <i class="fa fa-star rated"></i>
-            <i class="fa fa-star rated"></i>
-            <i class="fa fa-star"></i>
-            </p>
-            </div>
-            <div class="pull-right m-t-10">
-            <button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-            </div>
+            <span class="hint-text pull-left text-white"></span>
             <div class="clearfix"></div>
             </div>
+           
             </div>
             </div>
             </div>
@@ -60,7 +36,7 @@
             <!-- fin central-->
             @else
 
-            <div class="gallery-item first" data-id="1" data-width="1" data-height="1" style="position: absolute; left: 0px; top: 0px;">
+          <div class="gallery-item first" data-id="{{$publicacion->id }}" data-width="1" data-height="1" style="position: absolute; left: 0px; top: 0px;">
                 <img src={{ $publicacion->img }} alt="" class="image-responsive-height image-responsive-width">
                 
                 
@@ -68,30 +44,12 @@
                 <div class="overlayer-wrapper item-info ">
                 <div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
                 <div class="">
-                 
-                <p class="pull-left bold text-white fs-14 p-t-10">{{ $publicacion->titulo }}</p>
-                <span class="pull-right  text-black font-montserrat bg-tagcolor bold">Noticia</span>
+                  <span class="pull-right  text-black font-montserrat bg-tagcolor bold">Noticia</span>
+                <p class="pull-left bold text-white fs-14 ">{{ $publicacion->titulo }}</p>
+               
                 <div class="clearfix"></div>
                 </div>
-                <div class="m-t-10">
-                <div class="thumbnail-wrapper d32 circular m-t-5">
-                <img width="40" height="40" src="img/avatar.jpg" data-src="img/avatar.jpg" data-src-retina="img/avatar2x.jpg" alt="">
-                </div>
-                <div class="inline m-l-10">
-                <p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-                <p class="rating">
-                <i class="fa fa-star rated"></i>
-                <i class="fa fa-star rated"></i>
-                <i class="fa fa-star rated"></i>
-                <i class="fa fa-star rated"></i>
-                <i class="fa fa-star"></i>
-                </p>
-                </div>
-                <div class="pull-right m-t-10">
-                <button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-                </div>
-                <div class="clearfix"></div>
-                </div>
+               
                 </div>
                 </div>
                 </div>                  

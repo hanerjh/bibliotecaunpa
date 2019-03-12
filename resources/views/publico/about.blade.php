@@ -39,127 +39,27 @@
       <h2>Colecciones</h2>
 
       <div class="row">
-        <div class="col-lg-3 mb-3">
-          <div class="card h-100 text-center">
-            <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Colección General</h4>
-              <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#">name@example.com</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 mb-3">
-          <div class="card h-100 text-center">
-            <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Coleccion de Referencia</h4>
-              <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#">name@example.com</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 mb-3">
-          <div class="card h-100 text-center">
-            <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Coleccion de Hemeroteca</h4>
-              <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#">name@example.com</a>
-            </div>
-          </div>
-        </div>
+        @foreach ($colecciones as $coleccion)
 
         <div class="col-lg-3 mb-3">
             <div class="card h-100 text-center">
               <img class="card-img-top" src="http://placehold.it/750x450" alt="">
               <div class="card-body">
-                <h4 class="card-title">Colección de Medios Audiovisuales</h4>
-                <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
+              <h4 class="card-title">{{$coleccion->coleccion}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Biblioteca Unipacífico</h6>
+                <p class="card-text"></p>
               </div>
-              <div class="card-footer">
-                <a href="#">name@example.com</a>
-              </div>
+              
             </div>
           </div>
-
-          <div class="col-lg-3 mb-3">
-              <div class="card h-100 text-center">
-                <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-                <div class="card-body">
-                  <h4 class="card-title">Colección de Folletos</h4>
-                  <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-                </div>
-                <div class="card-footer">
-                  <a href="#">name@example.com</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 mb-3">
-                <div class="card h-100 text-center">
-                  <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-                  <div class="card-body">
-                    <h4 class="card-title">Colección de Medios Electrónicos y Digitales</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-                  </div>
-                  <div class="card-footer">
-                    <a href="#">name@example.com</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-3 mb-3">
-                  <div class="card h-100 text-center">
-                    <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-                    <div class="card-body">
-                      <h4 class="card-title">Colección del Pacífico</h4>
-                      <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-                    </div>
-                    <div class="card-footer">
-                      <a href="#">name@example.com</a>
-                    </div>
-                  </div>
-                </div>
+            
+        @endforeach
+      
+        
 
       </div>
       <!-- /.row -->
 
-      <!-- Our Customers -->
-      <h2>Our Customers</h2>
-      <div class="row">
-        <div class="col-lg-2 col-sm-4 mb-4">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </div>
-        <div class="col-lg-2 col-sm-4 mb-4">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </div>
-        <div class="col-lg-2 col-sm-4 mb-4">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </div>
-        <div class="col-lg-2 col-sm-4 mb-4">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </div>
-        <div class="col-lg-2 col-sm-4 mb-4">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </div>
-        <div class="col-lg-2 col-sm-4 mb-4">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </div>
-      </div>
-      <!-- /.row -->
+      
       @endsection
     

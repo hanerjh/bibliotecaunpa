@@ -15,7 +15,13 @@ class CreateDocumentosTable extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->increments('id');
-            
+            $table->string('titulo');
+            $table->string('descripcion');
+            $table->date('fecha');
+            $table->unsignedInteger('fktipodocumento');
+            $table->foreign('fktipodocumento')->references('id')->on('tipo_documentos');
+            $table->boolean('estado');
+
             $table->timestamps();
         });
     }
