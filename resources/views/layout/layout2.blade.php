@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>Biblioteca - @yield("titulo")</title>
 
     <!-- Bootstrap core CSS -->
   <link href="{{ url('/asset/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -16,7 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ url('/asset/css/modern-business.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+    @yield('estilos')
 
 
   </head>
@@ -50,7 +50,7 @@
                    <!-------- Features Section -->
     <div class="row">
       <div class="col-md-4 text-white">
-        <img  class="float-left" src="asset/img/escudo.png" alt="" width="80px">
+        <img  class="float-left" src="{{url('asset/img/escudo.png')}}" alt="" width="80px">
          <h2 class="text-white">UNIVERSIDAD DEL PACIFICO</h2>
          
         <p> La Universidad del Pacífico es una institución de educación superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional.
@@ -111,7 +111,7 @@
     <!-- Bootstrap core JavaScript -->
   <script src="{{url('/asset/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{url('/asset/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
+  @yield('script')
   </body>
 
 </html>

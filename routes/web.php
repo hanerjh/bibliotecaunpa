@@ -20,17 +20,30 @@ Route::resource('/','indexController');
 Route::get('/services',function(){
     return view('publico.services');
 });
-//noticias
-Route::get('/publicaciones/{id}','publicacionesController@post');
-Route::get('/noticias','publicacionesController@noticias');
-
-Route::get('/biblioteca','bibGeneralController@about');
-
-Route::get('/equipo','bibGeneralController@equipo');
 
 Route::get('/recursos',function(){
     return view('publico.recursos.index');
 });
 
+Route::get('/solicitud_compra',function(){
+    return view('publico.webverticalmenu.solicitudes');
+});
+
+//noticias y eventos
+Route::get('/publicaciones/{id}','publicacionesController@post');
+Route::get('/noticias','publicacionesController@noticias');
+Route::get('/eventos/{id}','publicacionesController@post_evento');
+Route::get('/eventos','publicacionesController@eventos');
+
+Route::get('/biblioteca','bibGeneralController@about');
+
+Route::get('/equipo','bibGeneralController@equipo');
+
+
+
 Route::resource('/bibliotecadigital','bibDigitalController');
+
+//consultar usuario
+Route::get('/estatus','wsController@usu_multa');
+Route::get('/usuario/{id}','wsController@usu_koha');
 

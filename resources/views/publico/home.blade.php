@@ -89,12 +89,12 @@
       <div class="row">
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">Catalogo en Linea</h4>
+            <h4 class="card-header">Catálogo en Linea</h4>
             <div class="card-body">
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn  bg-green text-white">Learn More</a>
+              <a href="http://unipacifico.metabiblioteca.org/" class="btn  bg-green text-white" target="blank">Ir a catálogo</a>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
             </div>
             <div class="card-footer">
-              <a href="/recursos" class="btn bg-dark text-white">Learn More</a>
+              <a href="/recursos" class="btn bg-dark text-white">Ir a Recursos</a>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
             </div>
             <div class="card-footer">
-              <a href="/bibliotecadigital" class="btn bg-green text-white">Learn More</a>
+              <a href="/bibliotecadigital" class="btn bg-green text-white">Ir a Biblioteca</a>
             </div>
           </div>
         </div>
@@ -198,11 +198,11 @@
           <h6 class="mb-1">{{$evento->titulo}}</h6> 
                  
           </div>
-          <small>Fecha del evento: {{$evento->fecha_cierre}}</small>
+          <small class="text-muted">Fecha del evento: {{Carbon\Carbon::parse($evento->fecha_cierre)-> format('M j, Y')}}</small>
           <br> 
           <small>{{str_limit($evento->contenido,80)}} </small>          
           <span class="pull-right rounded semi-bold text-black bg-success px-2 font-montserrat bg-tag bold ">
-            <small>{{$evento->tipo_evento}}</small>
+            <small >{{$evento->tipo_evento}}</small>
           </span>        
         </a>
         
@@ -230,7 +230,7 @@
         <p class="fs-13">{{ $evento->contenido}}   </p>
        
         <br>
-        <button class="btn btn-primary buy-now">Ver mas noticias</button>
+        <a href="eventos" class="btn btn-primary buy-now">Ver mas eventos</a>
         </div>
         </div>
        
@@ -239,11 +239,11 @@
         </button>
         </div>
         </div> 
-    <!-- End item  event pop over -->		
+        <!-- End item  event pop over -->		
         @endforeach
       </div>
       <div class="pull-right mt-2">             
-          <a href="" class="text-decoration-none"><i class="fas fa-plus-square text-black"></i> Ver más eventos</a>
+          <a href="/eventos" class="text-decoration-none"><i class="fas fa-plus-square text-black"></i> Ver más eventos</a>
         </div>
       
       </div>

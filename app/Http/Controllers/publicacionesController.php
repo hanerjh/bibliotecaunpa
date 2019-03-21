@@ -36,4 +36,39 @@ class publicacionesController extends Controller
         return view('publico.gridnoticias',compact('noticias'));
 
     }
+
+    public function eventos()
+    {
+        $eventos=DB::table('eventos')
+        ->join('tipoeventos','tipoeventos.id','=','tpeventos_id')
+        ->limit(3)
+        ->orderBy('eventos.id','desc')
+        ->select('img','titulo','contenido','eventos.id as id','tipo_evento')
+        ->paginate(6);
+             
+        return view('publico.grideventos',compact('eventos'));
+
+    }
+
+        /**
+     * Muestra las noticias.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function post_evento($id)
+    {
+   
+       
+        $evento=DB::table('eventos')->where('id',"=",$id)->first();
+   
+        $listanoticias=DB::table('publicaciones')
+        ->where('fk_idtipopublicacion',"<>",3)
+        ->limit(6)
+        ->orderBy('created_at','desc')
+        ->get();
+        
+        return view('publico.evento_desarrollo',compact('evento','listanoticias'));
+
+    }
 }

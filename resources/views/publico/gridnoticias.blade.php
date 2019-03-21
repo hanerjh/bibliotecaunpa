@@ -18,10 +18,12 @@
              <!-- <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
             <a href="/publicaciones/{{$noticia->id}}"><img class="card-img-top" src="{{$noticia->img}}" alt=""></a>
               <div class="card-body">
-                <h4 class="card-title">
+                <h5 class="card-title">
                 <a href="/publicaciones/{{$noticia->id}}">{{$noticia->titulo}}</a>
-                </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+                </h5>
+              <p class="card-text">{!!str_limit($noticia->descripcion,'150')!!}</p>
+              <small class="text-muted">Fecha de Publicación: {{  Carbon\Carbon::parse($noticia->created_at)-> format('M j, Y')}}</small>
+              <!--<small class="text-muted">Fecha de Publicación: {{  Carbon\Carbon::parse($noticia->created_at)->diffForHumans()}}</small>-->
               </div>
             </div>
           </div>
@@ -30,30 +32,7 @@
        
       </div>
       {{ $noticias->links() }}
-      <!-- Pagination 
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>-->
+      
 
 
       @endsection
