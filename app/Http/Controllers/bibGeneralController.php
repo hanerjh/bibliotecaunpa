@@ -29,4 +29,20 @@ class bibGeneralController extends Controller
         return view('publico.about',compact('colecciones'));
     }
 
+    public function enlaces_interes()
+     {
+        
+         $recursos=DB::table('recursos')->get();         
+        return view('publico.recursos.enlaces_interes',compact('recursos'));
+    }
+
+    public function gestoresbibliograficos()
+     {
+        
+         $recursos=DB::table('recursos')
+         ->where('tipo_recursos_id',4)
+         ->get();         
+        return view('publico.recursos.gestoresbibliograficos',compact('recursos'));
+    }
+
 }

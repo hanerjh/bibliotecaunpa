@@ -39,7 +39,7 @@
                           <h5 class="card-title">Gestores bibliográficos</h5>
                           <p class="card-text">
                             ​​​​​​Herramientas permiten almacenar, administrar, organizar y compartir referencias bibliográficas.(EndNote web,zotero,mendeley,easybib)</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <a href="/gestoresbibliograficos" class="btn btn-primary">Ingresar</a>
                         </div>
                       </div>
                     </div>
@@ -51,7 +51,7 @@
                           <p class="card-text">
                             Atlas,Biografías,Buscadores,Diccionarios y Glosarios,Enciclopedias,Estadísticas,Tesauros,Otros recursos
                           </p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="/enlacesdeinteres" class="btn btn-primary">Go somewhere</a>
                         </div>
                       </div>
                     </div>

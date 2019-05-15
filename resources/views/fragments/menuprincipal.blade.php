@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><img src="{{ url('asset/img/escudo.png')}}" width="60px"></a> <h3>Biblioteca Unipacífico</h3>
+          <a class="navbar-brand" href="/"><img src="{{ url('asset/img/escudo.png')}}" width="60px"></a> <h3>Biblioteca Unipacífico</h3>
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -26,7 +26,7 @@
                     <a class="nav-link" href="/noticias">Noticias</a>
                   </li>
                   <li class="nav-item">
-                        <a class="nav-link" href="/services">FAQs</a>
+                        <a class="nav-link" href="/fqas">FAQs</a>
                       </li>
               
             <!--  <li class="nav-item dropdown">
@@ -41,7 +41,7 @@
   
              
               <li class="nav-item">
-                  <a class="nav-link" href="/contact">Contacto</a>
+                  <a class="nav-link" href="/contacto">Contacto</a>
                 </li>
             </ul>
           </div>

@@ -71,20 +71,22 @@
                 Medios Institucionales              
               </h2>
             
-           <ul class="float-left">
-             <li>Unipacífico</li>
-             <li>Biblioteca</li>
-             <li>Servicio</li>
-             <li>Noticias</li>
-             <li>PQRs</li>
-           </ul>
-           <ul class="float-left mx-2">           
-              <li>Catalogo en Linea </li>
-              <li>Bases de Datos</li>
-              <li>Repositorio</li>
-              <li>Academusoft</li>
-              <li>Avast</li>
-            </ul>
+              <ul class="float-left">
+                  <li><a href="http://www.unipacifico.edu.co:8095/web3.0/inicio.jsp" target="blank" class=" text-white">Unipacífico</a></li>
+                  <li><a href="/" class=" text-white">Biblioteca</a></li>
+                  <li><a href="http://www.unipacifico.edu.co:8095/web3.0/institucional.jsp?opt=21&opt2=pg" target="blank" class=" text-white">Bienestar</a></li>
+                  <li><a href="http://egresados.unipacifico.edu.co:2201/site/index" target="blank" class=" text-white">Egresados</a></li>
+                  <li><a href="/services" class=" text-white">Servicio</a></li>
+                  <li><a href="/noticias" class=" text-white">Noticias</a></li>
+                  <li><a href="/contacto" class=" text-white">Contactenos</a></li>
+                </ul>
+                <ul class="float-left mx-2 ">           
+                   <li><a href="http://unipacifico.metabiblioteca.org/" target="blank" class=" text-white">Catálogo en Linea </a></li>
+                <li><a href="/bibliotecadigital" class=" text-white">Bases de Datos</a></li>
+                   <li><a href="/enlacesdeinteres/#repositorios" class=" text-white">Repositorio</a></li>
+                   <li><a href="http://www.unipacifico.edu.co:8095/web3.0/inicio.jsp/#sistmasacademicos" target="blank" class=" text-white">Academusoft</a></li>
+                   <li><a href="http://avas.unipacifico.edu.co/moodle/index.php" target="blank" class=" text-white"> Avast</a></li>
+                 </ul>
         </div>
     
   

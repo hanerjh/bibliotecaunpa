@@ -20,10 +20,10 @@ class bibDigitalController extends Controller
        //dd($request->query('bandera'));
        //dd($request->getQueryString());
        //dd($request->query('idtiporecurso'));
-       //SE EVALUA QUE EL REQUES SEA DESDE LA ENTRADA AUTOMATICA DEL INDEX CONTROLLER
+       //SE EVALUA QUE EL REQUEST SEA DESDE LA ENTRADA AUTOMATICA DEL INDEX CONTROLLER
         if($request->getQueryString()==null){
             $bandera=3;
-            $recursos=resource::paginate(2);
+            $recursos=resource::paginate(8);
             //$tiporecursos = type_resource::all();
             $tiporecursos =  DB::table('tipo_recursos')
                                 ->join('recursos','tipo_recursos.id','recursos.tipo_recursos_id')
@@ -39,13 +39,13 @@ class bibDigitalController extends Controller
              if($bandera!=3){
                 $idrecurso= $request->query('idtiporecurso'); 
                     
-                $recursos = resource::where('tipo_recursos_id',$idrecurso)->paginate(2);               
+                $recursos = resource::where('tipo_recursos_id',$idrecurso)->paginate(8);               
                
 
              }
             else  //SI LA BANDERA ES IGUAL A 3 ES PORQUE SE ESTA HACIENDO CLICK EN LOS LINKS DE PAGINACION QUE FUERON CARGADOS EN LA PRIMERA LLAMADA DEL INDEX CONTROLLER
             {
-                $recursos=resource::paginate(2);
+                $recursos=resource::paginate(8);
               
             }
            
@@ -78,10 +78,9 @@ class bibDigitalController extends Controller
     {
         
         $idrecurso= $request->input('recurso_option_list');
-         $recursos = resource::where('tipo_recursos_id',$idrecurso)->paginate(2);
+         $recursos = resource::where('tipo_recursos_id',$idrecurso)->paginate(8);
          
-         $tiporecursos = type_resource::all();
-         
+         $tiporecursos = type_resource::all();         
             $bandera=1;
             return view('publico.bibdigital.index',compact('recursos','bandera','tiporecursos'));
         
@@ -95,7 +94,11 @@ class bibDigitalController extends Controller
      */
     public function show($id)
     {
-        dd($id);
+        $recursos = resource::where('tipo_recursos_id',$id)->paginate(8);         
+         $tiporecursos = type_resource::all();         
+         $bandera=1;
+         $recurse="";
+         return view('publico.bibdigital.index',compact('recursos','recurse','bandera','tiporecursos'));
     }
 
     /**

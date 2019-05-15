@@ -34,10 +34,10 @@ body {
 .barranumberload{background-color:#ffc717 ; padding-top: 20px; padding-bottom: 20px; padding-left: 20%; }
 .barranumberload div{ border-left: aliceblue 1px solid; }
 
-.ctitle{ color: aliceblue;}
-.counter{margin-top:-14px; color: aliceblue;}
+.ctitle{ color: #383b3f;}
+.counter{margin-top:-14px; color:#383b3f; }
 h3{ color: aliceblue;}
-.iconos{color: aliceblue; margin-right: 10px;}
+.iconos{color: #383b3f; margin-right: 10px;}
 .colortext{color:#244275}
 
 #menuvertical .list-group-item-action { 

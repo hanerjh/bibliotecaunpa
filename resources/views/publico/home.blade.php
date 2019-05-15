@@ -180,7 +180,7 @@
           @include('fragments.menu')
 
 
-          <h5 class="mt-3 py-3 pl-2 bg-warning">
+          <h5 class="mt-3 py-3 pl-2 ">
             <i class="fas fa-calendar-alt"></i>
             Nuestra Agenda
             <small class="text-muted">Eventos</small>
@@ -195,10 +195,10 @@
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start event-item"  data-id="{{$evento->id}}" >            
          
           <div class="d-flex w-100 justify-content-between">            
-          <h6 class="mb-1">{{$evento->titulo}}</h6> 
+          <h6 class="mb-1" style="color:#ac8714">{{$evento->titulo}}</h6> 
                  
           </div>
-          <small class="text-muted">Fecha del evento: {{Carbon\Carbon::parse($evento->fecha_cierre)-> format('M j, Y')}}</small>
+           <small class="text"><strong>Fecha del evento: {{Carbon\Carbon::parse($evento->fecha_cierre)-> format('M j, Y')}}</strong></small>
           <br> 
           <small>{{str_limit($evento->contenido,80)}} </small>          
           <span class="pull-right rounded semi-bold text-black bg-success px-2 font-montserrat bg-tag bold ">
@@ -323,18 +323,20 @@
             </h2>
           
          <ul class="float-left">
-           <li>Unipacífico</li>
-           <li>Biblioteca</li>
-           <li>Servicio</li>
-           <li>Noticias</li>
-           <li>PQRs</li>
+           <li><a href="http://www.unipacifico.edu.co:8095/web3.0/inicio.jsp" target="blank" class=" text-white">Unipacífico</a></li>
+           <li><a href="/" class=" text-white">Biblioteca</a></li>
+           <li><a href="http://www.unipacifico.edu.co:8095/web3.0/institucional.jsp?opt=21&opt2=pg" target="blank" class=" text-white">Bienestar</a></li>
+           <li><a href="http://egresados.unipacifico.edu.co:2201/site/index" target="blank" class=" text-white">Egresados</a></li>
+           <li><a href="/services" class=" text-white">Servicio</a></li>
+           <li><a href="/noticias" class=" text-white">Noticias</a></li>
+           <li><a href="/contacto" class=" text-white">Contactenos</a></li>
          </ul>
-         <ul class="float-left mx-2">           
-            <li>Catalogo en Linea </li>
-            <li>Bases de Datos</li>
-            <li>Repositorio</li>
-            <li>Academusoft</li>
-            <li>Avast</li>
+         <ul class="float-left mx-2 ">           
+            <li><a href="http://unipacifico.metabiblioteca.org/" target="blank" class=" text-white">Catálogo en Linea </a></li>
+         <li><a href="/bibliotecadigital" class=" text-white">Bases de Datos</a></li>
+            <li><a href="/enlacesdeinteres/#repositorios" class=" text-white">Repositorio</a></li>
+            <li><a href="http://www.unipacifico.edu.co:8095/web3.0/inicio.jsp/#sistmasacademicos" target="blank" class=" text-white">Academusoft</a></li>
+            <li><a href="http://avas.unipacifico.edu.co/moodle/index.php" target="blank" class=" text-white"> Avast</a></li>
           </ul>
       </div>
   
@@ -343,7 +345,7 @@
       <div class="col-md-4 text-white">
           <h2 class="">
               <i class="fas fa-user-clock"></i>
-              HORARIO DE ATENCION
+              HORARIO DE ATENCIÓN
              
             </h2>
             <dt>Biblioteca del Campus Universitario:</dt>

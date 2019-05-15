@@ -62,8 +62,7 @@ class publicacionesController extends Controller
        
         $evento=DB::table('eventos')->where('id',"=",$id)->first();
    
-        $listanoticias=DB::table('publicaciones')
-        ->where('fk_idtipopublicacion',"<>",3)
+        $listanoticias=DB::table('eventos')       
         ->limit(6)
         ->orderBy('created_at','desc')
         ->get();
