@@ -21,16 +21,16 @@
           </div>
       
           <!-- Card body -->
-          <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+          <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
             <div class="card-body">
                 <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">LOGO</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                       
+                        <th scope="col">Buscador</th>
+                        <!--<th scope="col">Nombre</th>-->
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Enlace</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -38,13 +38,14 @@
             @if ($recurso->tipo_recursos_id==5)
            
                   <tr>
+                  
                     <th scope="row">
-                       <img class="card-img-top" src="asset/img/{{$recurso->foto}}"  alt="Card image cap" >
+                       <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}"  alt="Card image cap" >
                     </th>
-                    <td>{{ $recurso->foto}}</td>
-                    <td>{{ $recurso->nombre}}</td>
+                    
+                    <!--<td>{{ $recurso->nombre}}</td>-->
                     <td>{{$recurso->descripcion}}</td>
-                    <td><a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar -></a></td>
+                    <td><a href="{{$recurso->enlace}}" target="blank" class="btn btn-primary">Ingresar -></a></td>
                   </tr>
            
             @endif
@@ -74,35 +75,35 @@
           <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2" data-parent="#accordionEx">
             <div class="card-body">
                
-                    <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">LOGO</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-              @foreach ($recursos as $recurso)
-                @if ($recurso->tipo_recursos_id==6)
-               
+                <table class="table table-hover">
+                    <thead>
                       <tr>
-                        <th scope="row">
-                           <img class="card-img-top" src="asset/img/{{$recurso->foto}}" >
-                        </th>
-                        <td>{{ $recurso->foto}}</td>
-                        <td>{{ $recurso->nombre}}</td>
-                        <td>{{$recurso->descripcion}}</td>
-                        <td><a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar -></a></td>
+                       
+                        <th scope="col">Repositorio</th>
+                        <!--<th scope="col">Nombre</th>-->
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Enlace</th>
                       </tr>
-               
-                @endif
-              @endforeach
-              </tbody>
-            </table>
-            </div>
+                    </thead>
+                    <tbody>
+          @foreach ($recursos as $recurso)
+            @if ($recurso->tipo_recursos_id==6)
+           
+                  <tr>
+                  
+                    <th scope="row">
+                       <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}"  alt="Card image cap" >
+                    </th>
+                    
+                    <!--<td>{{ $recurso->nombre}}</td>-->
+                    <td>{{$recurso->descripcion}}</td>
+                    <td><a href="{{$recurso->enlace}}" target="blank" class="btn btn-primary">Ingresar -></a></td>
+                  </tr>
+           
+            @endif
+          @endforeach
+          </tbody>
+        </table>
           
           </div>
       
@@ -128,11 +129,11 @@
                   <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">LOGO</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                         
+                          <th scope="col">Repositorio</th>
+                          <!--<th scope="col">Nombre</th>-->
+                          <th scope="col">Descripción</th>
+                          <th scope="col">Enlace</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -140,13 +141,14 @@
               @if ($recurso->tipo_recursos_id==4)
              
                     <tr>
+                    
                       <th scope="row">
-                         <img class="card-img-top" src="asset/img/{{$recurso->foto}}"  alt="Card image cap" >
+                         <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}"  alt="Card image cap" >
                       </th>
-                      <td>{{ $recurso->foto}}</td>
-                      <td>{{ $recurso->nombre}}</td>
+                      
+                      <!--<td>{{ $recurso->nombre}}</td>-->
                       <td>{{$recurso->descripcion}}</td>
-                      <td><a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar -></a></td>
+                      <td><a href="{{$recurso->enlace}}" target="blank" class="btn btn-primary">Ingresar -></a></td>
                     </tr>
              
               @endif
@@ -177,11 +179,11 @@
                 <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">LOGO</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                       
+                          <th scope="col">Diccionarios</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Descripción</th>
+                          <th scope="col">Enlace</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -190,12 +192,11 @@
            
                   <tr>
                     <th scope="row">
-                       <img class="card-img-top" src="asset/img/{{$recurso->foto}}"  alt="Card image cap" >
+                       <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}"  alt="Card image cap" >
                     </th>
-                    <td>{{ $recurso->foto}}</td>
-                    <td>{{ $recurso->nombre}}</td>
+                     <td>{{ $recurso->nombre}}</td>
                     <td>{{$recurso->descripcion}}</td>
-                    <td><a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar -></a></td>
+                    <td><a href="{{$recurso->enlace}}" target="blank" class="btn btn-primary">Ingresar -></a></td>
                   </tr>
            
             @endif
@@ -227,11 +228,10 @@
                       <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">First</th>
-                              <th scope="col">LOGO</th>
-                              <th scope="col">Last</th>
-                              <th scope="col">Handle</th>
+                                
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Enlace</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -239,13 +239,11 @@
                   @if ($recurso->tipo_recursos_id==10)
                  
                         <tr>
-                          <th scope="row">
-                             <img class="card-img-top" src="asset/img/{{$recurso->foto}}"  alt="Card image cap" >
-                          </th>
-                          <td>{{ $recurso->foto}}</td>
+                         
+                          
                           <td>{{ $recurso->nombre}}</td>
                           <td>{{$recurso->descripcion}}</td>
-                          <td><a href="{{$recurso->enlace}}" class="btn btn-primary">Ingresar -></a></td>
+                          <td><a href="{{$recurso->enlace}}" target="blank" class="btn btn-primary">Ingresar -></a></td>
                         </tr>
                  
                   @endif

@@ -29,7 +29,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Solicitud por correo Electrónico</h5>
                       <p class="card-text">
-                          Si deseas sugerir varios libros, descarga nuestro formato; y una vez diligenciado el formulario, debe ser enviado a <strong> adquisiciones.biblioteca@unipacifico.edu.co</strong>  desde tu correo institucional.
+                          Si deseas sugerir varios libros, descarga nuestro formato; y una vez diligenciado el formulario, debe ser enviado a <strong> adquisicionbiblioteca@unipacifico.edu.co</strong>  desde tu correo institucional.
                       </p>
                       <a href="#">Descargar formato de solicitud</a>
                     </div>

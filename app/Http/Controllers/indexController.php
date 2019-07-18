@@ -14,20 +14,31 @@ class indexController extends Controller
      */
     public function index()
      {
-         $eventos=DB::table('eventos')
-                        ->join('tipoeventos','tipoeventos.id','=','tpeventos_id')
+         $eventos=DB::table('eventos as e')
+                        ->join('tipoeventos as tpe','tpe.id','=','tpeventos_id')
                         ->limit(3)
-                        ->orderBy('eventos.id','desc')
+                        ->orderBy('e.id','desc')
+                        ->select('e.id','e.titulo','e.contenido','e.img','e.fecha_cierre','e.created_at','tpe.tipo_evento')
                         ->get();
+                      
          $publicaciones=DB::table('publicaciones')->where('fk_idtipopublicacion',"<>",3)->limit(6)->orderBy('id', 'desc')->get();
          $banners=DB::table('publicaciones')->where('fk_idtipopublicacion',"=",3)->limit(3)->orderBy('id', 'desc')->get();
-       
+       // TRAE LOS LIBROS DESDE KOHA
          $client = new \GuzzleHttp\Client();
          $request = $client->get('http://unipacifico.metabiblioteca.org/cgi-bin/koha/svc/report?id=51');
          $response = $request->getBody();
           $covers= json_decode($response->getContents());
-           
-         return view('publico.home',compact('eventos','publicaciones','banners','covers'));
+        //TRAE INFORMACION SOBRE TIULOS Y EJEMPLARES
+        
+          $request = $client->get('http://unipacifico.metabiblioteca.org/cgi-bin/koha/svc/report?id=52');
+          $response = $request->getBody();
+          $datos= json_decode($response->getContents());
+        //REVISTAS
+          $request = $client->get('http://unipacifico.metabiblioteca.org/cgi-bin/koha/svc/report?id=57');
+          $response = $request->getBody();
+          $revistas= json_decode($response->getContents());
+           //dd($datos);
+        return view('publico.home',compact('eventos','publicaciones','banners','covers','datos','revistas'));
     }
 
     /**

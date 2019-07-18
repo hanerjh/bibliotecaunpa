@@ -17,8 +17,8 @@
 <div class="col-md-12" id="app">
   <h4>Consultar estatus en Biblioteca</h4>
   <p>
-    para consultar su estado en biblioteca con relacion a multas, ingresar el código si es estudiante, de lo contrario, documento de identidad si eres docente o funcionario 
-  </p>
+      Para consultar su estado en biblioteca con relación a multas, ingresar el código si es estudiante, de lo contrario, documento de identidad si eres docente o funcionario.
+      </p>
  <div class="row">
     <div class="col-md-8">
         <form id="form_multa">

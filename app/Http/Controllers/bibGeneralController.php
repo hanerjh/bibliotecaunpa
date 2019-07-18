@@ -32,7 +32,8 @@ class bibGeneralController extends Controller
     public function enlaces_interes()
      {
         
-         $recursos=DB::table('recursos')->get();         
+         $recursos=DB::table('recursos')
+          ->where('estado',1)->get();         
         return view('publico.recursos.enlaces_interes',compact('recursos'));
     }
 

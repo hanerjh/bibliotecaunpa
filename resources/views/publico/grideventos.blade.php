@@ -16,12 +16,13 @@
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
             
-            <a href="eventos/{{$evento->id}}"><img class="card-img-top" src="{{$evento->img}}" alt=""></a>
+            <a href="eventos/{{$evento->id}}"><img class="card-img-top" src="/asset/img/eventos/{{$evento->img}}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
                 <a href="eventos/{{$evento->id}}">{{$evento->titulo}}</a>
                 </h4>
               <p class="card-text">{{$evento->contenido}}</p>
+              <small class="text-muted">Fecha de Publicación: {{Carbon\Carbon::parse($evento->publicado)-> format('M j, Y')}}</small>
               </div>
             </div>
           </div>

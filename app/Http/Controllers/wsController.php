@@ -30,7 +30,7 @@ class wsController extends Controller
             foreach($multas as $multa){
              
                   if($index==0){
-                        $result.=" Apreciado usuario <b>".$multa[1]."</b>, segun nuetros registros,
+                        $result.=" Apreciado usuario <b>".$multa[1]."</b>, según nuetros registros,
                         usted posee";
                         if($multa[10]>0){
                         $result.="actualmente material(es) de biblioteca con un periodo de préstamos vencido.<br/>
@@ -71,7 +71,7 @@ class wsController extends Controller
                $result.=" Si usted cree que ha devuelto el material, por favor llame al personal de la biblioteca y ellos le ayudarán a resolver el problema.<br/>        
                Agradecemos la Atención prestada,<br/>";
             }else{
-            $result.="Si usted tiene alguna duda con relacion a la informacion presentada, por favor llame al personal de la biblioteca y ellos le ayudarán a resolver el problema.<br/>        
+            $result.="Si usted tiene alguna duda con relación a la información presentada, por favor comunicarse con el personal de la biblioteca y ellos le ayudarán a resolver el inconveniente.<br/>        
             Agradecemos la Atención prestada,<br/>Biblioteca Unipacifico ";
             }               
            $result.=" </div>"; 

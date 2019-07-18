@@ -43,7 +43,7 @@ class publicacionesController extends Controller
         ->join('tipoeventos','tipoeventos.id','=','tpeventos_id')
         ->limit(3)
         ->orderBy('eventos.id','desc')
-        ->select('img','titulo','contenido','eventos.id as id','tipo_evento')
+        ->select('img','titulo','contenido','eventos.id as id','tipo_evento','eventos.created_at as publicado')
         ->paginate(6);
              
         return view('publico.grideventos',compact('eventos'));

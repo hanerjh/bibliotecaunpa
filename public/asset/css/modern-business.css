@@ -24,15 +24,48 @@ body {
   background-size: cover;
 }
 
+
 .portfolio-item {
   margin-bottom: 30px;
 }
 .bg-dark {
   background-color: #2456ac !important; /*#2456ac #244275 ;*/
 }
+/*estilos de menu listas anuancion,noticias,eventos*/
+.bg-listheader{
+ background:  #204e9c!important;
+ color:white;
+}
+
+.body-menu_lista{
+  background-color: #f5f8fa;
+}
+
+.lista_border_bottom{
+  border-bottom: 1px solid #e1e2e4;
+}
+.media-body h6{
+  font-size: 15px;
+  color: #383b3f !important;
+}
+
+.media-body h6 a{
+  
+  color: #48515a !important;
+ }
+
+ .media-body h6 a:hover{
+  
+  color: #0ebb81 !important;
+ }
+
+ .titulo{
+  color: #61687d !important;
+}
+/**/
 .barranumberloadpadre{ background-color: #F2F2F2; padding-top: 20px; padding-bottom: 20px;}
 .barranumberload{background-color:#ffc717 ; padding-top: 20px; padding-bottom: 20px; padding-left: 20%; }
-.barranumberload div{ border-left: aliceblue 1px solid; }
+.barranumberload div{ border-left: #383b3f 1px solid; }
 
 .ctitle{ color: #383b3f;}
 .counter{margin-top:-14px; color:#383b3f; }

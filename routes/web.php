@@ -33,7 +33,9 @@ Route::get('/fqas',function(){
     return view('publico.preguntasfrecuentes');
 });
 
-
+Route::get('/nuevasadquisiciones',function(){
+    return view('publico.nuevasadquisiciones');
+});
 //noticias y eventos
 Route::get('/publicaciones/{id}','publicacionesController@post');
 Route::get('/noticias','publicacionesController@noticias');
@@ -55,4 +57,18 @@ Route::resource('/bibliotecadigital','bibDigitalController');
 //consultar usuario
 Route::get('/estatus','wsController@usu_multa');
 Route::get('/usuario/{id}','wsController@usu_koha');
+
+
+//RUTAS DEL MODULO DE ADMINISTRADOR
+
+
+
+Route::get('/admin',function(){
+    return view('admin.index');
+});
+
+Route::get('/actualizarnoticia','admin\noticiaController@Listaactualizacion');
+Route::resource('/regnoticia','admin\noticiaController');
+Route::resource('/regpublicaciones','admin\publicacionesController');
+Route::resource('/regeventos','admin\eventosController');
 
