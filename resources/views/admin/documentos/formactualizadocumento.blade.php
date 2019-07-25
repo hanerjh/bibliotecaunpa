@@ -6,23 +6,23 @@
    <div class="col-md-8">
         <div class="main-card mb-3 card">
                 <div class="card-body">
-                <h3 class="card-title">Registro de eventos</h3>
+                <h3 class="card-title">Actualizacion de documentos</h3>
                    
-                    <form  action="/regeventos/{{$eventos[0]->id }}" method="POST"  enctype="multipart/form-data" class="needs-validation"> 
+                    <form  action="/regdocumentos/{{$documento[0]->id }}" method="POST"  enctype="multipart/form-data" class="needs-validation"> 
                         @method('PUT')                
                         @csrf
                  
                         <div class="position-relative form-group">
-                            <label for="exampleSelect" class="">Tipo de Publicación</label>
+                            <label for="exampleSelect" class="">Tipo de documento</label>
                             <select name="tipo_evento" id="exampleSelect" class="form-control">
 
-                                @foreach ($tipo_eventos as $evento)
+                                @foreach ($tipo_documentos as $tipo_documento)
                                  
-                                  @if($eventos[0]->idtipoevento==$evento->id)
-                                     <option value="{{$evento->id}}" selected>{{$evento->tipo_evento}}</option>
+                                  @if($documento[0]->fktipodocumento==$tipo_documento->id)
+                                     <option value="{{$tipo_documento->id}}" selected>{{$tipo_documento->tdocumento}}</option>
                                   
                                   @else
-                                    <option value="{{$evento->id}}">{{$evento->tipo_evento}}</option>
+                                    <option value="{{$tipo_documento->id}}">{{$tipo_documento->tdocumento}}</option>
                                   @endif
                                     
                                 @endforeach
@@ -33,7 +33,7 @@
 
                              <div class="form-group">
                             <label for="validationCustom01">Titulo</label>
-                             <input type="text" name="titulo" class="form-control" id="validationCustom01"  value="{{$eventos[0]->titulo}}"  placeholder="Titulo de Noticia"  required>
+                             <input type="text" name="titulo" class="form-control" id="validationCustom01"  value="{{$documento[0]->titulo}}"  placeholder="Titulo de Noticia"  required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -45,7 +45,7 @@
                     
                             <div class="form-group">
                                 <label for="exampleText" class="">Descripcion</label>
-                                <textarea name="descripcion" id="editor" class="form-control" id="validationCustom02"  required >{{$eventos[0]->contenido}}</textarea>
+                                <textarea name="descripcion" id="editor" class="form-control" id="validationCustom02"  required >{{$documento[0]->descripcion}}</textarea>
                                 <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -61,20 +61,11 @@
                                 <small class="text-danger">{{$errors->first('archivo')}} </small>  
                                @endif
                             </div>
-                        
-                            <div class="form-group">
-                                    <label for="example-datetime-local-input" >Fecha y hora de cierre</label>
-                                      <input name="fecha_cierre" class="form-control" type="datetime-local"  id="example-datetime-local-input" value="">
-                                      <small>Fecha Actual:  {{$eventos[0]->fecha_cierre}}</small>
-                                      @if($errors->has('fecha_cierre'))         
-                                      <small class="text-danger">{{$errors->first('fecha_cierre')}} </small>  
-                                     @endif
-                                  </div>
                    
                                   <div class="position-relative form-group">
                                         <label for="exampleSelect" class="">Estado</label>
                                         <select name="estado" id="exampleSelect" class="form-control">
-                                              @if($eventos[0]->estado==1)
+                                              @if($documento[0]->estado==1)
                                                  <option value="1" selected>Activo</option>
                                                  <option value="0">Inactivo</option>                                              
                                               @else

@@ -6,25 +6,24 @@
    <div class="col-md-8">
         <div class="main-card mb-3 card">
                 <div class="card-body">
-                <h3 class="card-title">Registro de eventos</h3>
-                   
-                    <form  action="/regeventos/{{$eventos[0]->id }}" method="POST"  enctype="multipart/form-data" class="needs-validation"> 
-                        @method('PUT')                
+                <h3 class="card-title">Actualizar publicaciones</h3>
+                    <p class="">
+                        En este formulario puede actualizar anuncios, banner e imagenes para las ventanas emergentes<br> 
+                     </p>
+                    <form  action="/regpublicaciones/{{$publicacion[0]->id}}" method="POST"  enctype="multipart/form-data" class="needs-validation"> 
+                        @method('PUT')                 
                         @csrf
                  
                         <div class="position-relative form-group">
                             <label for="exampleSelect" class="">Tipo de Publicación</label>
-                            <select name="tipo_evento" id="exampleSelect" class="form-control">
+                            <select name="tipo_publicacion" id="exampleSelect" class="form-control">
 
-                                @foreach ($tipo_eventos as $evento)
-                                 
-                                  @if($eventos[0]->idtipoevento==$evento->id)
-                                     <option value="{{$evento->id}}" selected>{{$evento->tipo_evento}}</option>
-                                  
-                                  @else
-                                    <option value="{{$evento->id}}">{{$evento->tipo_evento}}</option>
-                                  @endif
-                                    
+                                @foreach ($tipo_publicaciones as $tipo)
+                                    @if($tipo->id==$publicacion[0]->fk_idtipopublicacion)
+                                    <option value="{{$tipo->id}}" selected>{{$tipo->tipopublicacion}}</option>
+                                    @else
+                                    <option value="{{$tipo->id}}">{{$tipo->tipopublicacion}}</option>
+                                    @endif
                                 @endforeach
                                
                                
@@ -33,7 +32,8 @@
 
                              <div class="form-group">
                             <label for="validationCustom01">Titulo</label>
-                             <input type="text" name="titulo" class="form-control" id="validationCustom01"  value="{{$eventos[0]->titulo}}"  placeholder="Titulo de Noticia"  required>
+                            <input type="text" name="titulo" class="form-control" id="validationCustom01"
+                             placeholder="Titulo de Noticia"  value="{{$publicacion[0]->titulo}}">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -45,10 +45,11 @@
                     
                             <div class="form-group">
                                 <label for="exampleText" class="">Descripcion</label>
-                                <textarea name="descripcion" id="editor" class="form-control" id="validationCustom02"  required >{{$eventos[0]->contenido}}</textarea>
+                                <textarea name="descripcion" id="editor" class="form-control" id="validationCustom02">{{$publicacion[0]->descripcion}}</textarea>
                                 <div class="valid-feedback">
                                         Looks good!
                                     </div>
+
                                     @if($errors->has('descripcion'))         
                                     <small class="text-danger">{{$errors->first('descripcion')}} </small>  
                                    @endif
@@ -62,30 +63,22 @@
                                @endif
                             </div>
                         
-                            <div class="form-group">
-                                    <label for="example-datetime-local-input" >Fecha y hora de cierre</label>
-                                      <input name="fecha_cierre" class="form-control" type="datetime-local"  id="example-datetime-local-input" value="">
-                                      <small>Fecha Actual:  {{$eventos[0]->fecha_cierre}}</small>
-                                      @if($errors->has('fecha_cierre'))         
-                                      <small class="text-danger">{{$errors->first('fecha_cierre')}} </small>  
-                                     @endif
-                                  </div>
+                            <div class="position-relative form-group">
+                                    <label for="exampleSelect" class="">Estado</label>
+                                    <select name="estado" id="exampleSelect" class="form-control">
+                                          @if($publicacion[0]->estado==1)
+                                             <option value="1" selected>Activo</option>
+                                             <option value="0">Inactivo</option>                                              
+                                          @else
+                                           <option value="1">Activo</option>
+                                            <option value="0" selected>Inactivo</option>
+                                          @endif
+                                    </select>
+                                </div>
                    
-                                  <div class="position-relative form-group">
-                                        <label for="exampleSelect" class="">Estado</label>
-                                        <select name="estado" id="exampleSelect" class="form-control">
-                                              @if($eventos[0]->estado==1)
-                                                 <option value="1" selected>Activo</option>
-                                                 <option value="0">Inactivo</option>                                              
-                                              @else
-                                               <option value="1">Activo</option>
-                                                <option value="0" selected>Inactivo</option>
-                                              @endif
-                                        </select>
-                                    </div>
                    
-                    <button class="btn btn-primary" type="submit"> Registrar</button>
-                        <div class="col-4">
+                    <button class="btn btn-primary" type="submit"> Actualizar</button>
+                        <div class="col-12">
                             @if(session()->has('msj'))
                             <div class="alert alert-success" role="alert">
                              {{ session('msj') }}
@@ -127,13 +120,11 @@
 
    </div>
 
-
-
-@endsection
-
-@section('script')
+   @section('script')
 <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor' );
 </script>
+@endsection
+
 @endsection

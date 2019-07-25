@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <div class="card-header">Listado de Eventos
+            <div class="card-header">Listado de Documentos
 
             </div>
             <div class="table-responsive">
@@ -17,8 +17,7 @@
                         <tr>
                             <th class="text-center">#</th>
                             <th>Titulo</th>
-                            <th class="text-center">Fecha de Publicación</th>
-                            <th class="text-center">Fecha de Finalización</th>
+                            <th class="text-center">Fecha de Publicación</th>                           
                             <th class="text-center">Tipo</th>
                             <th class="text-center">Estado</th>
                             <th class="text-center">Accion</th>
@@ -26,7 +25,7 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($eventos as $evento)
+                        @foreach ($documentos as $documento)
 
                         <tr>
                             <td class="text-center text-muted">{{$loop->index+1}}</td>
@@ -40,19 +39,18 @@
                                                 </div>
                                             </div>
                                             <div class="widget-content-left flex2">
-                                            <div class="widget-heading">{{ $evento->titulo}}</div>
-                                                <div class="widget-subheading opacity-7">Web Developer</div>
+                                            <div class="widget-heading">{{ $documento->titulo}}</div>
+                                             
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center">{{ $evento->created_at}}</td>
-                                <td class="text-center">{{ $evento->fecha_cierre}}</td>
+                                <td class="text-center">{{ $documento->created_at}}</td>                            
                                 <td class="text-center">
-                                    <div class="badge badge-warning">{{ $evento->tipo_evento}}</div>
+                                    <div class="badge badge-warning">{{ $documento->tdocumento}}</div>
                                 </td>
                                 <td class="text-center">
-                                    @if($evento->estado==1)
+                                    @if($documento->estado==1)
                                       <p class="text-success">Activo</p>
                                       @else
                                       <p class="text-danger">Inactivo</p>
@@ -61,7 +59,7 @@
 
                                 </td>
                                 <td class="text-center">
-                                    <a href="regeventos/{{$evento->id}}/edit"  id="PopoverCustomT-1"
+                                    <a href="regdocumentos/{{$documento->id}}/edit"  id="PopoverCustomT-1"
                                         class="btn btn-primary btn-sm">Editar</button>
                                 </td>
                             </tr>

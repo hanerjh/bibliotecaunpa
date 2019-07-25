@@ -16,6 +16,8 @@ class noticiaController extends Controller
     public function index()
     {
         //
+        $noticias=DB::table('publicaciones')->where('fk_idtipopublicacion',1)->orderBy('created_at', 'desc')->paginate(6);
+        return view('admin.noticia.actualizarnoticia',compact('noticias'));
        
     }
 
@@ -85,6 +87,11 @@ class noticiaController extends Controller
     public function edit($id)
     {
         //
+        $noticia=DB::table('publicaciones')
+        ->where('id',$id)
+        ->get();
+
+        return view('admin.noticia.formactualizarnoticia',compact("noticia"));
     }
 
     /**
@@ -97,6 +104,34 @@ class noticiaController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+         // SACTUALIZACION CON ENVIO DE IMAGEN
+       if($request->hasFile('archivo')){
+
+        $file = $request->file('archivo');
+        $name = time().$file->getClientOriginalName();         
+        $destinationPath = public_path('/asset/img/noticias');                
+         $file->move($destinationPath, $name);  
+
+        
+            DB::table('publicaciones')
+            ->where('id', $id)
+            ->update( ['titulo' => $request->titulo, 'descripcion' => $request->descripcion, 'img' => $name, 'estado' => $request->estado,'updated_at'=>now() ]);
+        
+        
+    }
+    else{
+        // ACTUALIZACION SIN ENVIAR IMAGEN
+        
+        DB::table('publicaciones')
+        ->where('id', $id)
+        ->update( ['titulo' => $request->titulo, 'descripcion' => $request->descripcion,'estado' => $request->estado,'updated_at'=>now() ]);
+    
+
+    }
+        return back()->with('msj','La noticia fue actualizada correctamente');
+      
+
     }
 
     /**

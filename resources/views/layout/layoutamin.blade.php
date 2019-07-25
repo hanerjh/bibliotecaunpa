@@ -22,6 +22,8 @@
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
     <link href="{{url("asset/assets/main.css")}}" rel="stylesheet">
+    <!--  Notificacion -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" type="text/css">
 
 </head>
 
@@ -556,13 +558,13 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="regnoticia/create">
+                                        <a href="/regnoticia/create">
                                             <i class="metismenu-icon"></i>
                                             Registrar
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/actualizarnoticia">
+                                        <a href="/regnoticia">
                                             <i class="metismenu-icon"></i>
                                             Actualizar
                                         </a>
@@ -573,7 +575,7 @@
                             <li>
                                 <a href="#">
                                     <i class="metismenu-icon pe-7s-car"></i>
-                                     Anuncios
+                                   Publicaciones
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
                                 <ul>
@@ -617,20 +619,20 @@
                             <li>
                                 <a href="#">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Recursos
+                                    Recursos Digitales
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a href="/recursosElectronicos/create">
                                             <i class="metismenu-icon"></i>
-                                            Electronicos
+                                            Registrar
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a href="/recursosElectronicos">
                                             <i class="metismenu-icon"></i>
-                                            Tipo Recursos
+                                            Actualizar
                                         </a>
                                     </li>
 
@@ -638,10 +640,26 @@
                             </li>
 
                             <li>
-                                    <a href="tables-regular.html">
-                                        <i class="metismenu-icon pe-7s-display2"></i>
-                                        Novedades Biblografícas
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-diamond"></i>
+                                        Registrar documentos
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/regdocumentos/create">
+                                                <i class="metismenu-icon"></i>
+                                                Registrar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/regdocumentos">
+                                                <i class="metismenu-icon"></i>
+                                                Actualizar
+                                            </a>
+                                        </li>
+    
+                                    </ul>
                                 </li>
 
                                 <li>
@@ -683,7 +701,37 @@
 
     <script type="text/javascript" src="{{url("asset/assets/scripts/main.js")}}"></script>
 </body>
+ <!--  Notificacion -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   
+ 
 
 @yield('script')
+ 
+<script>
 
+        @if(session()->has('msj')) 
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-full-width",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            } 
+        toastr.success("{{ session('msj') }}") 
+        @endif
+  
+     
+   </script>
 </html>

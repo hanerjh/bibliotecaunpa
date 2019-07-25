@@ -16,8 +16,13 @@ class publicacionesController extends Controller
     public function index()
     {
         //      
-        $publicaciones=DB::table('publicaciones')->get();
-        return view('admin.publicaciones.actualizar');
+        $publicaciones=DB::table('publicaciones as p')
+        ->join('tipo_publicaciones as tpp','tpp.id','=','p.fk_idtipopublicacion')
+        ->orderBy('p.created_at','desc')
+        ->select('p.id','p.titulo','p.descripcion','p.img','p.estado','p.created_at','tpp.tipopublicacion')
+        ->where('p.fk_idtipopublicacion','<>',1)
+        ->get();
+        return view('admin.publicaciones.actualizarpublicaciones',compact('publicaciones'));
     }
 
     /**
@@ -55,6 +60,7 @@ class publicacionesController extends Controller
                 $file = $request->file('archivo');
                 $name = time().$file->getClientOriginalName();
 
+                    //SI TIPO DE PUBLICACION ES ANUNCIOS
                     if($request->tipo_publicacion==2){
                         $destinationPath = public_path('/asset/img/noticias');                
                         $file->move($destinationPath, $name);
@@ -93,6 +99,12 @@ class publicacionesController extends Controller
     public function edit($id)
     {
         //
+        $publicacion=DB::table('publicaciones')        
+        ->where('id',$id)
+        ->get();
+        $tipo_publicaciones=DB::table('tipo_publicaciones')->where('id',"<>",1)->get();
+        return view('admin.publicaciones.formactualizacionpublicacion',compact("publicacion","tipo_publicaciones"));
+
     }
 
     /**
@@ -105,6 +117,46 @@ class publicacionesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validarDatos= $request->validate([
+            'titulo'=>'required',           
+            'descripcion'=>'required',
+        ]);
+
+                    // SACTUALIZACION CON ENVIO DE IMAGEN
+                if($request->hasFile('archivo')){
+
+                    $file = $request->file('archivo');
+                    $name = time().$file->getClientOriginalName(); 
+
+                    //SI LA OPCION ES ANUNCIOS ENTONCES LA IMAGEN SE ENVIA A LA CARPETA NOTICIA 
+                    if($request->tipo_publicacion==2){
+                        $destinationPath = public_path('/asset/img/noticia');
+                    }
+                    else{
+                        $destinationPath = public_path('/asset/img/banner');
+                    } 
+
+                    $file->move($destinationPath, $name);  
+
+                    
+
+                        DB::table('publicaciones')
+                        ->where('id', $id)
+                        ->update( ['titulo' => $request->titulo, 'descripcion' => $request->descripcion, 'img' => $name, 'estado' => $request->estado,'updated_at'=>now() ]);
+                    
+                    
+                }
+                else{
+                    // ACTUALIZACION SIN ENVIAR IMAGEN
+                    
+                    DB::table('publicaciones')
+                    ->where('id', $id)
+                    ->update( ['titulo' => $request->titulo, 'descripcion' => $request->descripcion,'estado' => $request->estado,'updated_at'=>now() ]);
+                
+
+                }
+                    return back()->with('msj','La publicación fue actualizada correctamente');
+                
     }
 
     /**

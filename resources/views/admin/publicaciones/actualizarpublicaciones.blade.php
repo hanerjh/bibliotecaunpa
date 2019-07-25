@@ -26,7 +26,7 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($eventos as $evento)
+                        @foreach ($publicaciones as $publicacion)
 
                         <tr>
                             <td class="text-center text-muted">{{$loop->index+1}}</td>
@@ -40,19 +40,19 @@
                                                 </div>
                                             </div>
                                             <div class="widget-content-left flex2">
-                                            <div class="widget-heading">{{ $evento->titulo}}</div>
-                                                <div class="widget-subheading opacity-7">Web Developer</div>
+                                            <div class="widget-heading">{{ $publicacion->titulo}}</div>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center">{{ $evento->created_at}}</td>
-                                <td class="text-center">{{ $evento->fecha_cierre}}</td>
+                                <td class="text-center">{{ $publicacion->created_at}}</td>
+                                <td class="text-center"></td>
                                 <td class="text-center">
-                                    <div class="badge badge-warning">{{ $evento->tipo_evento}}</div>
+                                    <div class="badge badge-warning">{{ $publicacion->tipopublicacion}}</div>
                                 </td>
                                 <td class="text-center">
-                                    @if($evento->estado==1)
+                                    @if($publicacion->estado==1)
                                       <p class="text-success">Activo</p>
                                       @else
                                       <p class="text-danger">Inactivo</p>
@@ -61,7 +61,7 @@
 
                                 </td>
                                 <td class="text-center">
-                                    <a href="regeventos/{{$evento->id}}/edit"  id="PopoverCustomT-1"
+                                    <a href="regpublicaciones/{{$publicacion->id}}/edit"  id="PopoverCustomT-1"
                                         class="btn btn-primary btn-sm">Editar</button>
                                 </td>
                             </tr>

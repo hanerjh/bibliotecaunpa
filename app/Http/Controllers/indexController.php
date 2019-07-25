@@ -16,9 +16,10 @@ class indexController extends Controller
      {
          $eventos=DB::table('eventos as e')
                         ->join('tipoeventos as tpe','tpe.id','=','tpeventos_id')
-                        ->limit(3)
+                        ->limit(2)
                         ->orderBy('e.id','desc')
                         ->select('e.id','e.titulo','e.contenido','e.img','e.fecha_cierre','e.created_at','tpe.tipo_evento')
+                        ->where('e.estado',1)
                         ->get();
                       
          $publicaciones=DB::table('publicaciones')->where('fk_idtipopublicacion',"<>",3)->limit(6)->orderBy('id', 'desc')->get();

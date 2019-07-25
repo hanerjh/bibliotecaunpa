@@ -214,7 +214,7 @@
                         <small class="text"><strong>Fecha del evento:
                                 {{Carbon\Carbon::parse($evento->fecha_cierre)-> format('M j, Y')}}</strong></small>
                         <br>
-                        <small>{{str_limit($evento->contenido,80)}} </small>
+                        <!--<small>{!! str_limit($evento->contenido,80) !!} </small>-->
                         <span
                             class="pull-right rounded semi-bold text-black bg-success px-2 font-montserrat bg-tag bold ">
                             <small>{{$evento->tipo_evento}}</small>
@@ -227,24 +227,29 @@
                         <div class="dialog__content">
                             <div class="container-fluid">
                                 <div class="row dialog__overview">
-                                    <div class="col-md-7 no-padding item-slideshow-wrapper full-height">
+                                    <div class="col-md-6 no-padding item-slideshow-wrapper full-height">
                                         <div class="item-slideshow full-height ">
                                             <div class="owl-stage-outer">
                                                 <div class="owl-stage"
                                                     style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 984px;">
                                                     <div class="owl-item active" style="width: 491.75px;">
                                                         <div class="slide" data-image=""
-                                                            style="background-image: url(&quot;{{$evento->img}}&quot;); background-size:600px 600px;">
+                                                            style="background-image: url(&quot;asset/img/eventos/{{$evento->img}}&quot;); background-size:cover;">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 p-r-35 p-t-35 p-l-35 full-height item-description">
-                                        <h4 class="semi-bold no-margin font-montserrat">{{ $evento->titulo}}</h4>
+                                    <div class="col-md-6 p-r-35 p-t-35 p-l-35 full-height item-description">
+                                        <h6 class="semi-bold no-margin font-montserrat">{{ strtoupper($evento->titulo)}}</h6>
                                         <br>
-                                        <p class="fs-13">{{ $evento->contenido}} </p>
+                                        <div style="overflow:auto;  height: 300px;">
+                                                <p class="fs-13">
+                                                        {!!$evento->contenido!!} 
+                                                    </p>
+                                        </div>
+                                       
 
                                         <br>
                                         <a href="eventos" class="btn btn-primary buy-now">Ver más eventos</a>

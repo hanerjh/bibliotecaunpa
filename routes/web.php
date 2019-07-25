@@ -67,8 +67,10 @@ Route::get('/admin',function(){
     return view('admin.index');
 });
 
-Route::get('/actualizarnoticia','admin\noticiaController@Listaactualizacion');
+
 Route::resource('/regnoticia','admin\noticiaController');
 Route::resource('/regpublicaciones','admin\publicacionesController');
 Route::resource('/regeventos','admin\eventosController');
+Route::resource('/recursosElectronicos','admin\recursosElectronicosController');
+Route::resource('/regdocumentos','admin\documentosController');
 
