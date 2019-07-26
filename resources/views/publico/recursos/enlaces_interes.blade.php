@@ -1,6 +1,14 @@
 @extends('layout.layout2')
-@section('titulo','Enlaces de Interes')
+@section('titulo','Enlaces de Interés')
 @section('contenido')
+<style>
+    .card-header{
+      background-color:#e9ecef !important; 
+    }
+    .mb-0{
+      color: #5b5555;
+    }
+   </style>
 
 <p> Esta sección posee fuentes de informacion adicional que sera de gran ayuda en los procesos academicos.  </p>
 
@@ -168,7 +176,7 @@
             <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
               aria-expanded="false" aria-controls="collapseThree3">
               <h5 class="mb-0">
-              Dicconarios <i class="fas fa-angle-down rotate-icon float-right"></i>
+              Diccionarios <i class="fas fa-angle-down rotate-icon float-right"></i>
               </h5>
             </a>
           </div>
@@ -255,7 +263,7 @@
             
               </div>
               <!-- Accordion card -->
-      
+        </div>
       </div>
       <!-- Accordion wrapper -->
 @endsection

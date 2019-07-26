@@ -16,7 +16,7 @@
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                         <a class="dropdown-item" href="/biblioteca">Sobre Bibloteca</a>
                         <a class="dropdown-item" href="/equipo">Equipo de Trabajo</a>
-                        <a class="dropdown-item" href="">Reglamentos y politicas</a>
+                        <a class="dropdown-item" href="/informes">Informes</a>
                       </div>
                     </li>
               <li class="nav-item">

@@ -19,9 +19,9 @@
             <a href="eventos/{{$evento->id}}"><img class="card-img-top" src="/asset/img/eventos/{{$evento->img}}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                <a href="eventos/{{$evento->id}}">{{$evento->titulo}}</a>
+                <a href="eventos/{{$evento->id}}">{{ strtoupper($evento->titulo)}}</a>
                 </h4>
-              <p class="card-text">{{$evento->contenido}}</p>
+              <p class="card-text">{!!str_limit($evento->contenido,'150')!!}</p>
               <small class="text-muted">Fecha de Publicación: {{Carbon\Carbon::parse($evento->publicado)-> format('M j, Y')}}</small>
               </div>
             </div>

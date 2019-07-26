@@ -3,37 +3,49 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+    public function showLoginForm(){
 
-    use AuthenticatesUsers;
+        return view('admin.login');
+    }
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    public function login(){
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+       /* $hashed_random_password = Hash::make('hanower89');
+        DB::table('users')->insert(
+            ['name' => 'haner', 'email' =>'haner@unipacifico.edu.co', 
+             'password' => $hashed_random_password
+            ]);*/
+
+
+       $validarDatos= $this->validate(request(),[
+            'email'=>'email| required',
+            'password'=>'required',            
+            
+        ]);
+
+      if(Auth::attempt($validarDatos)){
+
+            return redirect()->route('admin');
+        }
+
+        return back()->withErrors(['email'=>trans('auth.failed')])
+                ->withInput(request(['email']));
+    }
+
+    public function logout(){
+        Auth::logout();
+        $mensaje="su seccion se ha ";
+        return redirect('/formlogin')->with('mensaje','Su session se ha cerrado correctamente');
+    }
+
+    public function username()
     {
-        $this->middleware('guest')->except('logout');
+        return 'name';
     }
 }

@@ -46,4 +46,13 @@ class bibGeneralController extends Controller
         return view('publico.recursos.gestoresbibliograficos',compact('recursos'));
     }
 
+    public function informes()
+    {
+       
+        $informes=DB::table('documentos')
+        ->where('estado',1)
+        ->get();         
+       return view('publico.informes',compact('informes'));
+   }
+
 }

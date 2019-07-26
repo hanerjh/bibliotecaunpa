@@ -47,7 +47,7 @@
                     <div class="col-sm-4">
                       <div class="card">
                         <div class="card-body">
-                          <h5 class="card-title">Enlaces de Interes</h5>
+                          <h5 class="card-title">Enlaces de Interés</h5>
                           <p class="card-text">
                             Encontrará algunos recursos como Atlas, Biografías, Buscadores, Diccionarios y Glosarios, Enciclopedias, entre otros.
                             Esta sección posee fuentes de información adicional que será de gran ayuda en los procesos académicos.
