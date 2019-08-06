@@ -55,4 +55,29 @@ class bibGeneralController extends Controller
        return view('publico.informes',compact('informes'));
    }
 
+   public function nuevasAdquisiones()   {
+      
+       $informes=DB::table('documentos')
+       ->where('estado',1)
+       ->get();         
+      return view('publico.nuevasadquisiciones',compact('informes'));
+  }
+
+  public function manuales()   {
+      
+    $informes=DB::table('documentos')
+    ->where([['estado',1],['fktipodocumento',6]])
+    ->orWhere('fktipodocumento',5)
+    ->get();         
+   return view('publico.recursos.manuales',compact('informes'));
+}
+
+public function reglamentos()   {
+      
+    $informes=DB::table('documentos')    
+    ->Where('fktipodocumento',4)
+    ->get();         
+   return view('publico.recursos.reglamentosypoliticas',compact('informes'));
+}
+
 }

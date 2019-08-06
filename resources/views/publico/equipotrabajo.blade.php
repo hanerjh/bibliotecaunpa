@@ -12,9 +12,7 @@
       <div class="col-6 ">  
       <div class="card mb-3 border border-secondary">
           <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="asset/img/user.jpg" class="img-fluid"  class="" alt="...">
-            </div>
+            
             <div class="col-md-8">
               <div class="card-body">
               <h5 class="card-title">{{$eq->nombre}} {{ $eq->apellidos}}</h5>
@@ -30,6 +28,10 @@
                 <p class="card-text"><small class="text-muted"></small></p>
               </div>
             </div>
+
+            <div class="col-md-4">
+                <img src="asset/img/user.jpg" class="img-fluid"  class="" alt="...">
+              </div>
           </div>
         </div>
       </div>

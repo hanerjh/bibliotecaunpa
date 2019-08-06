@@ -10,7 +10,7 @@
 
             <div class="live-tile carousel" data-speed="750" data-delay="4000" data-mode="">
             <div class="slide-front slide active" style="transition-property: top; transition-duration: 750ms; transition-timing-function: ease; top: 0%; left: 0%;">
-            <img src="asset/img/noticias/{{ $publicacion->img }}" alt="" class="image-responsive-height image-responsive-width">
+            <img src="/storage/asset/img/noticias/{{ $publicacion->img }}" alt="" class="image-responsive-height image-responsive-width">
             </div>           
             </div>
             
@@ -19,7 +19,7 @@
             <div class="overlayer-wrapper item-info more-content">
             <div class="gradient-grey p-l-20 p-r-20  p-b-5">
             <div class="">
-              <span class="pull-right semi-bold text-black font-montserrat bold bg-tagcolor no-margin">Anuncio</span>
+              <span class="pull-right semi-bold text-black font-montserrat bold bg-tagcolor no-margin">{{ $publicacion->tipopublicacion }}</span>
             <h5 class="pull-left bold text-white no-margin">{{ $publicacion->titulo }}</h5>
            
            
@@ -37,14 +37,14 @@
             @else
 
           <div class="gallery-item first" data-id="{{$publicacion->id }}" data-width="1" data-height="1" style="position: absolute; left: 0px; top: 0px;">
-                <img src="asset/img/noticias/{{ $publicacion->img }}" alt="" class="image-responsive-height image-responsive-width">
+                <img src="/storage/asset/img/noticias/{{ $publicacion->img }}" alt="" class="image-responsive-height image-responsive-width">
                 
                 
                 <div class="overlayer bottom-left full-width">
                 <div class="overlayer-wrapper item-info ">
                 <div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
                 <div class="">
-                  <span class="pull-right  text-black font-montserrat bg-tagcolor bold">Noticia</span>
+                  <span class="pull-right  text-black font-montserrat bg-tagcolor bold">{{ $publicacion->tipopublicacion }}</span>
                 <p class="pull-left bold text-white fs-14 ">{{ $publicacion->titulo }}</p>
                
                 <div class="clearfix"></div>

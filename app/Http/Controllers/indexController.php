@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class indexController extends Controller
 {
     /**
@@ -22,11 +23,19 @@ class indexController extends Controller
                         ->where('e.estado',1)
                         ->get();
                       
-         $publicaciones=DB::table('publicaciones')->where('fk_idtipopublicacion',"<>",3)->limit(6)->orderBy('id', 'desc')->get();
+         $publicaciones=DB::table('publicaciones as p')
+         ->join('tipo_publicaciones as tp','tp.id','=','p.fk_idtipopublicacion')
+         ->where('fk_idtipopublicacion',1)
+         ->orwhere('fk_idtipopublicacion',2)
+         ->select('p.id','p.titulo','p.descripcion','p.img','tp.tipopublicacion','p.created_at')
+         ->limit(6)->orderBy('p.id', 'desc')
+         ->get();
          $banners=DB::table('publicaciones')->where('fk_idtipopublicacion',"=",3)->limit(3)->orderBy('id', 'desc')->get();
        // TRAE LOS LIBROS DESDE KOHA
          $client = new \GuzzleHttp\Client();
-         $request = $client->get('http://unipacifico.metabiblioteca.org/cgi-bin/koha/svc/report?id=51');
+         try{
+
+            $request = $client->get('http://unipacifico.metabiblioteca.org/cgi-bin/koha/svc/report?id=51');
          $response = $request->getBody();
           $covers= json_decode($response->getContents());
         //TRAE INFORMACION SOBRE TIULOS Y EJEMPLARES
@@ -40,6 +49,14 @@ class indexController extends Controller
           $revistas= json_decode($response->getContents());
            //dd($datos);
         return view('publico.home',compact('eventos','publicaciones','banners','covers','datos','revistas'));
+
+         } catch (\GuzzleHttp\Exception\ConnectException $e) {
+            //Log::error($e);
+           //exit();
+            //return redirect('/');
+            return view('publico.home',compact('eventos','publicaciones','banners'));
+        }
+         
     }
 
     /**

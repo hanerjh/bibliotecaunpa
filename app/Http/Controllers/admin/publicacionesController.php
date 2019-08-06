@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class publicacionesController extends Controller
 {
@@ -62,11 +63,12 @@ class publicacionesController extends Controller
 
                     //SI TIPO DE PUBLICACION ES ANUNCIOS
                     if($request->tipo_publicacion==2){
-                        $destinationPath = public_path('/asset/img/noticias');                
-                        $file->move($destinationPath, $name);
+                     
+                        $destinationPath=$file->storeAs('public/asset/img/noticias', $name);
+
                     }else{
-                        $destinationPath = public_path('/asset/img/banner');                
-                        $file->move($destinationPath, $name);
+                     
+                        $destinationPath=$file->storeAs('public/asset/img/banner', $name);
                     }
               
             }
@@ -130,15 +132,13 @@ class publicacionesController extends Controller
 
                     //SI LA OPCION ES ANUNCIOS ENTONCES LA IMAGEN SE ENVIA A LA CARPETA NOTICIA 
                     if($request->tipo_publicacion==2){
-                        $destinationPath = public_path('/asset/img/noticia');
+
+                        $destinationPath=$file->storeAs('public/asset/img/noticias', $name);
                     }
-                    else{
-                        $destinationPath = public_path('/asset/img/banner');
+                    else {
+                        $destinationPath=$file->storeAs('public/asset/img/banner', $name);
                     } 
 
-                    $file->move($destinationPath, $name);  
-
-                    
 
                         DB::table('publicaciones')
                         ->where('id', $id)

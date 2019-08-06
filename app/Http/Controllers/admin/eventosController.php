@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class eventosController extends Controller
 {
@@ -61,10 +62,8 @@ class eventosController extends Controller
         if($request->hasFile('archivo')){
 
         $file = $request->file('archivo');
-        $name = time().$file->getClientOriginalName();         
-        $destinationPath = public_path('/asset/img/eventos');                
-         $file->move($destinationPath, $name);
-            
+        $name = time().$file->getClientOriginalName();  
+         $file->storeAs('public/asset/img/eventos', $name);
       
     }
     // $id_session_user=$request->session()->get('iduser');
@@ -122,10 +121,9 @@ class eventosController extends Controller
        if($request->hasFile('archivo')){
 
             $file = $request->file('archivo');
-            $name = time().$file->getClientOriginalName();         
-            $destinationPath = public_path('/asset/img/eventos');                
-             $file->move($destinationPath, $name);  
-
+            $name = time().$file->getClientOriginalName(); 
+             $file->storeAs('public/asset/img/eventos', $name);
+             
              if($request->fecha_cierre=="" || $request->fecha_cierre==NULL )
              {
                 DB::table('eventos')

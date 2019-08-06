@@ -9,7 +9,7 @@
                   <div class="card-body">
                     <h5 class="card-title">Manuales y Tutoriales</h5>
                     <p class="card-text">Consulta nuestros manuales y tutoriales de los diferentes servicios y recursos académicos que ofrece la biblioteca.</p>
-                    <a href="#" class="btn btn-primary">Ingresar</a>
+                    <a href="/manualesytutoriales" class="btn btn-primary">Ingresar</a>
                   </div>
                 </div>
               </div>
@@ -26,9 +26,9 @@
                  <div class="col-sm-4">
                       <div class="card mb-2" >
                         <div class="card-body">
-                          <h5 class="card-title">Politicas y reglamentos de BIblioteca</h5>
+                          <h5 class="card-title">Políticas y reglamentos de BIblioteca</h5>
                           <p class="card-text">Consulta las politicas y reglamentos que rigen en la BIblioteca</p>
-                          <a href="#" class="btn btn-primary">Ingresar</a>
+                          <a href="/regalmentos" class="btn btn-primary">Ingresar</a>
                         </div>
                       </div>
                     </div>

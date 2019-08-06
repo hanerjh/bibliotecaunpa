@@ -2,6 +2,7 @@
 @section('contenido')
 <style>
  label{ font-weight:bold; }
+ #inputenlace{display: none;}
 </style>
    <div class="col-md-8">
         <div class="main-card mb-3 card">
@@ -14,7 +15,7 @@
                  
                         <div class="position-relative form-group">
                             <label for="exampleSelect" class="">Tipo de documento</label>
-                            <select name="tipo_documento" id="exampleSelect" class="form-control">
+                            <select name="tipo_documento" id="idtipodocumento" class="form-control">
 
                                 @foreach ($tipo_documentos as $tpdocumento)
                                     <option value="{{$tpdocumento->id}}">{{$tpdocumento->tdocumento}}</option>
@@ -47,15 +48,24 @@
                                     <small class="text-danger">{{$errors->first('descripcion')}} </small>  
                                    @endif
                             </div>
-
-                            <div class="position-relative form-group">
+                            <!--EVALUAMOS QUE TIPO DE DOCUMENTO SEA DIFERENTE A ID=5 QUE ES VIDEO PARA QUE SALGA EL UPLOAD SINO, SALE EL TEXT INPUT-->
+                         
+                            <div id="inputupload" class="position-relative form-group">
                                 <label for="exampleFile" class="">Imagen</label>
                                 <input name="archivo" id="exampleFile" type="file" class="form-control-file">
                                 @if($errors->has('archivo'))         
                                 <small class="text-danger">{{$errors->first('archivo')}} </small>  
                                @endif
                             </div>
-                        
+                       
+                         <div id="inputenlace" class="position-relative form-group">
+                                <label for="exampleFile" class="">Enlace</label>
+                                <input name="enlace" id="exampleFile" type="text" class="form-control-file">
+                                @if($errors->has('enlace'))         
+                                <small class="text-danger">{{$errors->first('enlace')}} </small>  
+                               @endif
+                            </div>
+
                                              
                    
                     <button class="btn btn-primary" type="submit"> Registrar</button>
@@ -69,7 +79,7 @@
                 </form>
     
                 <script>
-                  
+               
                     // Example starter JavaScript for disabling form submissions if there are invalid fields
                     (function () {
                         'use strict';
@@ -90,7 +100,10 @@
                         }, false);
                       
                     })();
-                      
+
+
+                   
+                                            
                     
     
                 </script>

@@ -31,13 +31,14 @@
     <div class="container">
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">@yield("titulo")</h1>
-
-        <ol class="breadcrumb">
+   
+        <ol class="breadcrumb ">
           <li class="breadcrumb-item">
             <a href="/"> Inicio</a>
           </li>
-          <li class="breadcrumb-item active">@yield("miga")</li>
+          <li class="breadcrumb-item active">@yield("titulo")</li>
         </ol>
+        
 
           @yield('contenido')
 

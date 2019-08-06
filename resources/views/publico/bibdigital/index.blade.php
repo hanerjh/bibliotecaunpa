@@ -16,10 +16,12 @@
              
               <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                     @if ($recurso->foto!="" || $recurso->foto!=null)
-                     <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}" style="max-height: 18rem;" alt="Card image cap">
+                     @if ($recurso->foto!="" || $recurso->foto!=null)  
+                        <div style="background-image: url({{url('/storage/asset/img/recursos/'.$recurso->foto)}});  background-repeat:no-repeat; background-size: contain; background-position: center center; height:100px;">
+                      </div>                   
+                     
                       @else
-                      <img class="card-img-top" src="asset/img/recursos/noimage.png" style="max-height: 18rem;" alt="Card image cap">
+                      <img class="card-img-top" src="/storage/asset/img/recursos/noimage.png"  alt="Card image cap">
 
                      @endif
                     <div class="card-body">
@@ -49,9 +51,10 @@
                   <div class="col-md-4">
                       <div class="card mb-4 box-shadow">
                           @if ($recurso->foto!="" || $recurso->foto!=null)
-                          <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}" style="max-height: 18rem;" alt="Card image cap">
+                          <div style="background-image: url({{url('/storage/asset/img/recursos/'.$recurso->foto)}});  background-repeat:no-repeat; background-size: contain; background-position: center center; height:100px;">
+                          </div> 
                            @else
-                           <img class="card-img-top" src="asset/img/recursos/noimage.png" style="max-height: 18rem;" alt="Card image cap">
+                           <img class="card-img-top" src="/storage/asset/img/recursos/noimage.png" alt="Card image cap">
      
                           @endif                          <div class="card-body">
                               <h6 class="card-title">{{ $recurso->nombre}}</h6>
@@ -82,9 +85,10 @@
               <div class="col-md-4">
                   <div class="card mb-4 box-shadow">
                       @if ($recurso->foto!="" || $recurso->foto!=null)
-                      <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}" style="max-height: 18rem;" alt="Card image cap">
+                      <div style="background-image: url({{url('/storage/asset/img/recursos/'.$recurso->foto)}});  background-repeat:no-repeat; background-size: contain; background-position: center center; height:100px;">
+                      </div> 
                        @else
-                       <img class="card-img-top" src="asset/img/recursos/noimage.png" style="max-height: 18rem;" alt="Card image cap">
+                       <img class="card-img-top" src="/storage/asset/img/recursos/noimage.png"  alt="Card image cap">
  
                       @endif                      <div class="card-body">
                           <h6 class="card-title">{{ $recurso->nombre}}</h6>
@@ -142,14 +146,14 @@
               <div class="row">
                 <div class="col-lg-12">
                   <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">Catalogo en Linea</a>
+                    <li>                   
+                      <a href="http://unipacifico.metabiblioteca.org/" class="list-group-item list-group-item-action "><i class="fas fa-angle-right"></i> Catálogo en Línea</a> 
                     </li>
                     <li>
-                      <a href="#">Solicitud de reservas</a>
+                        <a href="https://forms.gle/Yjd6rLixXLVewtYa8" class="list-group-item list-group-item-action "><i class="fas fa-angle-right"></i> Solicitar Reserva</a>   
                     </li>
                     <li>
-                      <a href="#">Paz y salvo</a>
+                        <a href="/estatus" class="list-group-item list-group-item-action"> <i class="fas fa-angle-right"></i> Consultar Multas</a>
                     </li>
                   </ul>
                 </div>

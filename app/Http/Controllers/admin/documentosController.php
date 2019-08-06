@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class documentosController extends Controller
 {
@@ -45,34 +46,44 @@ class documentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
-           //
+           $tpdoc=$request->tipo_documento;
+           $campo="archivo";
+           if( $tpdoc==6){
+             $campo="enlace";
+           }
+         
+        
            $validarDatos= $request->validate([
-            'titulo'=>'required',
-            'archivo'=>'required',
+            'titulo'=>'required',            
+             $campo =>'required',
             'descripcion'=>'required',
-           
-            
         ]);
 
     
-        //SI hay un archivo en el envio del formulario
-        if($request->hasFile('archivo')){
+        //SI la variable $campo es igual a archivo, entonce se envio un archivo en formulario
+       if($request->hasFile('archivo'))
+       {
 
         $file = $request->file('archivo');
         $name = time().$file->getClientOriginalName();         
-        $destinationPath = public_path('/asset/documentos');                
-        $file->move($destinationPath, $name);
-            
-      
-    }
+        $file->storeAs('public/asset/documentos', $name);
+
+        DB::table('documentos')->insert(
+            ['titulo' => $request->titulo, 'descripcion' => $request->descripcion, 'archivo' => $name, 'fktipodocumento'=>$request->tipo_documento, 'estado'=>1 ]);
+      }
+      else //SI LA VARIABLE $CAMPO ES IGUAL A ENLACE, ENTONCES; SE ENVIO UN ENLACE EN EL FORMULARIO QUE CORRRESPONDE A UN VIDEO
+      {
+
+        DB::table('documentos')->insert(
+            ['titulo' => $request->titulo, 'descripcion' => $request->descripcion, 'archivo' => $request->enlace, 'fktipodocumento'=>$request->tipo_documento, 'estado'=>1 ]);
+      }
+
     // $id_session_user=$request->session()->get('iduser');
-     DB::table('documentos')->insert(
-        ['titulo' => $request->titulo, 'descripcion' => $request->descripcion, 'archivo' => $name, 'fktipodocumento'=>$request->tipo_documento, 'estado'=>1 ]
-    );
-    //'idpersonalider'=>$id_session_user
+
     return back()->with('msj','Documento Registrado');
+    
+     
+     
     }
 
     /**
@@ -118,32 +129,24 @@ class documentosController extends Controller
     {
        
       
-        // SACTUALIZACION CON ENVIO DE IMAGEN
+        // SACTUALIZACION CON ENVIO DE ARCHIVO
        if($request->hasFile('archivo')){
 
             $file = $request->file('archivo');
             $name = time().$file->getClientOriginalName();         
-            $destinationPath = public_path('/asset/documentos');                
-             $file->move($destinationPath, $name);  
+            $file->storeAs('public/asset/documentos', $name);   
 
-            
                 DB::table('documentos')
                 ->where('id', $id)
                 ->update( ['titulo' => $request->titulo, 'descripcion' => $request->descripcion, 'archivo' => $name, 'estado' => $request->estado,
                                      'fktipodocumento'=>$request->tipo_evento, 'updated_at'=>now() ]);
-            
-            
-            
         }
         else{
-            // ACTUALIZACION SIN ENVIAR IMAGEN
+            // ACTUALIZACION SIN ENVIAR ARCHIVO
             DB::table('documentos')
             ->where('id', $id)
             ->update( ['titulo' => $request->titulo, 'descripcion' => $request->descripcion, 'estado' => $request->estado,
                                  'fktipodocumento'=>$request->tipo_evento, 'updated_at'=>now() ]);
-        
-           
-            
 
         }
             return back()->with('msj','El documento fue actualizado correctamente');

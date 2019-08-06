@@ -55,17 +55,15 @@
 
                 @foreach($banners as $banner)
                 @if($cont==0)
-                <div class="carousel-item active" style="background-image: url('asset/img/banner/{{$banner->img}}')">
+                <div class="carousel-item active" style="background-image: url('/storage/asset/img/banner/{{$banner->img}}')">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>{{$banner->titulo}}</h3>
-                        <p>This is a description for the first slide.</p>
+                      
                     </div>
                 </div>
                 @else
-                <div class="carousel-item" style="background-image: url('asset/img/banner/{{$banner->img}}')">
+                <div class="carousel-item" style="background-image: url('/storage/asset/img/banner/{{$banner->img}}')">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>{{$banner->titulo}}</h3>
-                        <p>This is a description for the first slide.</p>
+                       
                     </div>
                 </div>
                 @endif
@@ -144,7 +142,12 @@
                         <i class="fas fa-book fa-3x iconos float-left"></i>
                         <span>
                             <h4 class="ctitle font-weight-bold">TITULOS</h4>
+                            @if(isset($datos))
                             <h2 class="counter">{{$datos[0][0]}}</h2>
+                            @else
+                             <h2 class="counter">0</h2>
+                            @endif
+
                         </span>
                     </div>
 
@@ -152,7 +155,11 @@
                         <i class="fas fa-copy fa-3x iconos float-left"></i>
                         <span>
                             <h4 class="ctitle font-weight-bold">EJEMPLARES</h4>
+                            @if(isset($datos))
                             <h2 class="counter">{{$datos[0][1]}}</h2>
+                            @else
+                             <h2 class="counter">0</h2>
+                            @endif
                         </span>
                     </div>
 
@@ -160,7 +167,11 @@
                         <i class="fas fa-book-open fa-3x iconos float-left"></i>
                         <span>
                             <h4 class="ctitle font-weight-bold">REVISTAS</h4>
+                            @if(isset($revistas))
                             <h2 class="counter">{{$revistas[0][0]}}</h2>
+                            @else
+                             <h2 class="counter">0</h2>
+                            @endif
                         </span>
                     </div>
 
@@ -234,7 +245,7 @@
                                                     style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 984px;">
                                                     <div class="owl-item active" style="width: 491.75px;">
                                                         <div class="slide" data-image=""
-                                                            style="background-image: url(&quot;asset/img/eventos/{{$evento->img}}&quot;); background-size:cover;">
+                                                            style="background-image: url(&quot;/storage/asset/img/eventos/{{$evento->img}}&quot;); background-size:cover;">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -302,7 +313,8 @@
             <div class="container-fluid">
                 <div class="brand-wrap my-5">
                     <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
-                        @foreach ($covers as $cover)
+                     @isset($covers)
+                        @forelse ($covers as $cover)
                         <div class="col single-brand">
                             <a href="http://unipacifico.metabiblioteca.org/cgi-bin/koha/opac-detail.pl?biblionumber={{$cover[0]}}"
                                 target="blank" data-toggle="tooltip" data-placement="top" title="{{$cover[1]}}"><img
@@ -311,7 +323,10 @@
                                     alt="{{$cover[1]}}"></a>
                             <!--<small class="text-white">{{$cover[1]}}</small>-->
                         </div>
-                        @endforeach
+                        @empty
+                           <p>No hay conexión</p>
+                        @endforelse
+                    @endisset
                     </div>
                 </div>
             </div>

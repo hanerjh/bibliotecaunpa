@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class recursosElectronicosController extends Controller
 {
@@ -60,8 +61,7 @@ class recursosElectronicosController extends Controller
 
           $file = $request->file('archivo');
           $name = time().$file->getClientOriginalName();
-          $destinationPath = public_path('/asset/img/recursos');
-          $file->move($destinationPath, $name);
+          $file->storeAs('public/asset/img/recursos', $name);
 
           $v=DB::table('recursos')->insert(
             ['nombre' => $request->nombre, 'descripcion' => $request->descripcion, 
@@ -119,11 +119,8 @@ class recursosElectronicosController extends Controller
         if($request->hasFile('archivo')){
 
             $file = $request->file('archivo');
-            $name = time().$file->getClientOriginalName();         
-            $destinationPath = public_path('/asset/img/recursos');                
-             $file->move($destinationPath, $name);  
-    
-            
+            $name = time().$file->getClientOriginalName(); 
+            $file->storeAs('public/asset/img/recursos', $name);     
                 DB::table('recursos')
                 ->where('id', $id)
                 ->update( ['nombre' => $request->nombre, 'descripcion' => $request->descripcion,'tipo_recursos_id'=>$request->tipo_recurso, 

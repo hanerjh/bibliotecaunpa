@@ -7,7 +7,7 @@
       <!-- Intro Content -->
       <div class="row">
         <div class="col-md-8">
-          <img class="img-fluid rounded-0 mb-4" width="100%" src="/asset/img/noticias/{{ $noticia->img }}" alt="">
+          <img class="img-fluid rounded-0 mb-4" width="100%" src="/storage/asset/img/noticias/{{ $noticia->img }}" alt="">
           <h2 class="titulo">{{ strtoupper($noticia->titulo)}}</h2>
           <small class="text-muted"><strong>Fecha de Publicación: {{Carbon\Carbon::parse($noticia->created_at)-> format('M j, Y')}}</strong></small>
        
@@ -26,7 +26,7 @@
                     <ul class="list-group">
                       @foreach($listanoticias as $listanoticia)
                         <li class="media py-1 lista_border_bottom">
-                        <img src="/asset/img/noticias/{{ $listanoticia->img }}" width="80px" class="mr-3 mt-1" alt="...">
+                        <img src="/storage/asset/img/noticias/{{ $listanoticia->img }}" width="80px" class="mr-3 mt-1" alt="...">
                           <div class="media-body ">
                             <h6 class="mt-0 mb-1 ">
                               <a href="/publicaciones/{{$listanoticia->id}}">{{ strtoupper($listanoticia->titulo)}}</a>
@@ -44,12 +44,6 @@
               </div>
             </div>
           </div>
-
-          
-         
-         
-
-         
        
 
         </div>

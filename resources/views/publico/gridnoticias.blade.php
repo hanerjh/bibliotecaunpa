@@ -16,7 +16,7 @@
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
              <!-- <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
-            <a href="/publicaciones/{{$noticia->id}}"><img class="card-img-top" src="/asset/img/noticias/{{$noticia->img}}" alt=""></a>
+            <a href="/publicaciones/{{$noticia->id}}"><img class="card-img-top" src="/storage/asset/img/noticias/{{$noticia->img}}" alt=""></a>
               <div class="card-body">
                 <h5 class="card-title">
                 <a href="/publicaciones/{{$noticia->id}}">{{ strtoupper($noticia->titulo) }}</a>

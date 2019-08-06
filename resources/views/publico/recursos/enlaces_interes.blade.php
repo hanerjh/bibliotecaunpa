@@ -48,7 +48,7 @@
                   <tr>
                   
                     <th scope="row">
-                       <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}"  alt="Card image cap" >
+                       <img class="" src="{{url('/storage/asset/img/recursos/'.$recurso->foto)}}" width="160px" alt="Card image cap" >
                     </th>
                     
                     <!--<td>{{ $recurso->nombre}}</td>-->
@@ -100,7 +100,7 @@
                   <tr>
                   
                     <th scope="row">
-                       <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}"  alt="Card image cap" >
+                       <img class="" src="{{url('/storage/asset/img/recursos/'.$recurso->foto)}}" width="160px"  alt="Card image cap" >
                     </th>
                     
                     <!--<td>{{ $recurso->nombre}}</td>-->
@@ -151,7 +151,7 @@
                     <tr>
                     
                       <th scope="row">
-                         <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}"  alt="Card image cap" >
+                         <img class="" src="{{url('/storage/asset/img/recursos/'.$recurso->foto)}}" width="160px" alt="Card image cap" >
                       </th>
                       
                       <!--<td>{{ $recurso->nombre}}</td>-->
@@ -200,7 +200,7 @@
            
                   <tr>
                     <th scope="row">
-                       <img class="card-img-top" src="asset/img/recursos/{{$recurso->foto}}"  alt="Card image cap" >
+                       <img class="" src="{{url('/storage/asset/img/recursos/'.$recurso->foto)}}" width="160px" alt="Card image cap" >
                     </th>
                      <td>{{ $recurso->nombre}}</td>
                     <td>{{$recurso->descripcion}}</td>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class noticiaController extends Controller
 {
@@ -54,8 +55,7 @@ class noticiaController extends Controller
 
           $file = $request->file('archivo');
           $name = time().$file->getClientOriginalName();
-          $destinationPath = public_path('/asset/img/noticias');
-          $file->move($destinationPath, $name);
+          $file->storeAs('public/asset/img/noticias', $name);
       }
     // $id_session_user=$request->session()->get('iduser');
       $v=DB::table('publicaciones')->insert(
@@ -109,10 +109,8 @@ class noticiaController extends Controller
        if($request->hasFile('archivo')){
 
         $file = $request->file('archivo');
-        $name = time().$file->getClientOriginalName();         
-        $destinationPath = public_path('/asset/img/noticias');                
-         $file->move($destinationPath, $name);  
-
+        $name = time().$file->getClientOriginalName(); 
+         $file->storeAs('public/asset/img/noticias', $name);
         
             DB::table('publicaciones')
             ->where('id', $id)

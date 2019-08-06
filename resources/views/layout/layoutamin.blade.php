@@ -718,4 +718,24 @@
   
      
    </script>
+
+   <script>
+    $(document).ready(function(){
+                        $('#idtipodocumento').change(function(){
+                          
+                            $val=$(this).val();
+                         
+                            if($val==6){
+                                $('#inputupload').hide();
+                                $('#inputenlace').show();
+                            }
+                            else{
+                                $('#inputupload').show();
+                                $('#inputenlace').hide();
+                            }
+                           
+                           
+                        });
+                    });
+   </script>
 </html>

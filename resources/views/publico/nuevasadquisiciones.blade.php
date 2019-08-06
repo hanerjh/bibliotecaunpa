@@ -1,9 +1,9 @@
 @extends('layout.layout2')
 
-@section('titulo','')
+@section('titulo','Novedades Bibliográficas')
 @section('contenido')
 
-<h2> Nuevas Adquisiones</h2>
+<h2> </h2>
 
 <p>
 
@@ -21,25 +21,18 @@
           </tr>
         </thead>
         <tbody>
-                <tr>
-                        <th scope="row">1</th>
-                        <td>Boletin Nuevas adquisiones - Enero</td>
-                        <td>2018</td>
-                      <td><a href=""><i class="fas fa-file-pdf fa-3x text-danger"></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Boletin Nuevas adquisiones - Abril</td>
-                        <td>2018</td>
-                        <td><a href=""><i class="fas fa-file-pdf fa-3x text-danger"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Boletin Nuevas adquisiones - Julio</td>
-                        <td>2018</td>
-                        <td><a href=""><i class="fas fa-file-pdf fa-3x text-danger"></td>
-                      
-                      </tr>
+          @foreach ($informes as $informe)
+          @if ($informe->fktipodocumento==3)
+
+          <tr>
+              <td>{{ $loop->index}}</td>   
+              <td>{{ $informe->titulo}}</td>
+              <td>{{Carbon\Carbon::parse($informe->created_at)-> format('M j, Y')}}</td>
+              <td><a href="storage/asset/documentos/{{$informe->archivo}}" target="blank">Descargar</a></td>
+          </tr>
+
+          @endif
+          @endforeach
         </tbody>
       </table>
       

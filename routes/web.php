@@ -33,9 +33,7 @@ Route::get('/fqas',function(){
     return view('publico.preguntasfrecuentes');
 });
 
-Route::get('/nuevasadquisiciones',function(){
-    return view('publico.nuevasadquisiciones');
-});
+
 //noticias y eventos
 Route::get('/publicaciones/{id}','publicacionesController@post');
 Route::get('/noticias','publicacionesController@noticias');
@@ -47,6 +45,10 @@ Route::get('/informes','bibGeneralController@informes');
 Route::get('/equipo','bibGeneralController@equipo');
 Route::get('/enlacesdeinteres','bibGeneralController@enlaces_interes');
 Route::get('/gestoresbibliograficos','bibGeneralController@gestoresbibliograficos');
+Route::get('/nuevasadquisiciones','bibGeneralController@nuevasAdquisiones');
+Route::get('/manualesytutoriales','bibGeneralController@manuales');
+Route::get('/regalmentos','bibGeneralController@reglamentos');
+
 Route::get('/contacto',function(){
     return view('publico.contacto');
 });
