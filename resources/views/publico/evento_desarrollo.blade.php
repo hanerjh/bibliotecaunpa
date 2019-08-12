@@ -3,6 +3,9 @@
 @section('miga','Eventos')
 @section('contenido')   
 
+@isset($evento)
+    
+
       
       <!-- Intro Content -->
       <div class="row">
@@ -52,7 +55,7 @@
         </div>
       </div>     
       
-      
+      @endisset
 
       
       @endsection
